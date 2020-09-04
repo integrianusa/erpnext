@@ -6,51 +6,6 @@ import frappe
 def get_data():
 	config = [
 		{
-			"label": _("Accounting Masters"),
-			"items": [
-				{
-					"type": "doctype",
-					"name": "Company",
-					"description": _("Company (not Customer or Supplier) master."),
-					"onboard": 1,
-				},
-				{
-					"type": "doctype",
-					"name": "Account",
-					"icon": "fa fa-sitemap",
-					"label": _("Chart of Accounts"),
-					"route": "#Tree/Account",
-					"description": _("Tree of financial accounts."),
-					"onboard": 1,
-				},
-				{
-					"type": "doctype",
-					"name": "Finance Book",
-				},
-				{
-					"type": "doctype",
-					"name": "Fiscal Year",
-					"description": _("Financial / accounting year.")
-				},
-				{
-					"type": "doctype",
-					"name": "Accounting Dimension",
-				},
-				{
-					"type": "doctype",
-					"name": "Accounting Period",
-				},
-				{
-					"type": "doctype",
-					"name": "Accounts Settings",
-				},
-				{
-					"type": "doctype",
-					"name": "Payment Term",
-					"description": _("Payment Terms based on conditions")
-				},
-			]
-		},		{
 			"label": _("Accounts Receivable"),
 			"items": [
 				{
@@ -172,6 +127,52 @@ def get_data():
 			]
 		},
 		{
+			"label": _("Accounting Masters"),
+			"items": [
+				{
+					"type": "doctype",
+					"name": "Company",
+					"description": _("Company (not Customer or Supplier) master."),
+					"onboard": 1,
+				},
+				{
+					"type": "doctype",
+					"name": "Account",
+					"icon": "fa fa-sitemap",
+					"label": _("Chart of Accounts"),
+					"route": "#Tree/Account",
+					"description": _("Tree of financial accounts."),
+					"onboard": 1,
+				},
+				{
+					"type": "doctype",
+					"name": "Accounts Settings",
+				},
+				{
+					"type": "doctype",
+					"name": "Fiscal Year",
+					"description": _("Financial / accounting year.")
+				},
+				{
+					"type": "doctype",
+					"name": "Accounting Dimension",
+				},
+				{
+					"type": "doctype",
+					"name": "Finance Book",
+				},
+				{
+					"type": "doctype",
+					"name": "Accounting Period",
+				},
+				{
+					"type": "doctype",
+					"name": "Payment Term",
+					"description": _("Payment Terms based on conditions")
+				},
+			]
+		},
+		{
 			"label": _("Banking and Payments"),
 			"items": [
 				{
@@ -284,6 +285,39 @@ def get_data():
 			]
 		},
 		{
+			"label": _("Cost Center and Budgeting"),
+			"items": [
+				{
+					"type": "doctype",
+					"name": "Cost Center",
+					"icon": "fa fa-sitemap",
+					"label": _("Chart of Cost Centers"),
+					"route": "#Tree/Cost Center",
+					"description": _("Tree of financial Cost Centers."),
+				},
+				{
+					"type": "doctype",
+					"name": "Budget",
+					"description": _("Define budget for a financial year.")
+				},
+				{
+					"type": "doctype",
+					"name": "Accounting Dimension",
+				},
+				{
+					"type": "report",
+					"name": "Budget Variance Report",
+					"is_query_report": True,
+					"doctype": "Cost Center"
+				},
+				{
+					"type": "doctype",
+					"name": "Monthly Distribution",
+					"description": _("Seasonality for setting budgets, targets etc.")
+				},
+			]
+		},
+		{
 			"label": _("Financial Statements"),
 			"items": [
 				{
@@ -319,32 +353,85 @@ def get_data():
 			]
 		},
 		{
-			"label": _("Profitability"),
+			"label": _("Opening and Closing"),
 			"items": [
 				{
-					"type": "report",
-					"name": "Gross Profit",
-					"doctype": "Sales Invoice",
-					"is_query_report": True
+					"type": "doctype",
+					"name": "Opening Invoice Creation Tool",
 				},
 				{
-					"type": "report",
-					"name": "Profitability Analysis",
-					"doctype": "GL Entry",
-					"is_query_report": True,
+					"type": "doctype",
+					"name": "Chart of Accounts Importer",
 				},
 				{
-					"type": "report",
-					"name": "Sales Invoice Trends",
-					"is_query_report": True,
-					"doctype": "Sales Invoice"
+					"type": "doctype",
+					"name": "Period Closing Voucher",
+					"description": _("Close Balance Sheet and book Profit or Loss.")
+				},
+			]
+
+		},
+		{
+			"label": _("Multi Currency"),
+			"items": [
+				{
+					"type": "doctype",
+					"name": "Currency",
+					"description": _("Enable / disable currencies.")
 				},
 				{
-					"type": "report",
-					"name": "Purchase Invoice Trends",
-					"is_query_report": True,
-					"doctype": "Purchase Invoice"
+					"type": "doctype",
+					"name": "Currency Exchange",
+					"description": _("Currency exchange rate master.")
 				},
+				{
+					"type": "doctype",
+					"name": "Exchange Rate Revaluation",
+					"description": _("Exchange Rate Revaluation master.")
+				},
+			]
+		},
+		{
+			"label": _("Settings"),
+			"icon": "fa fa-cog",
+			"items": [
+				{
+					"type": "doctype",
+					"name": "Payment Gateway Account",
+					"description": _("Setup Gateway accounts.")
+				},
+				{
+					"type": "doctype",
+					"name": "Terms and Conditions",
+					"label": _("Terms and Conditions Template"),
+					"description": _("Template of terms or contract.")
+				},
+				{
+					"type": "doctype",
+					"name": "Mode of Payment",
+					"description": _("e.g. Bank, Cash, Credit Card")
+				},
+			]
+		},
+		{
+			"label": _("Subscription Management"),
+			"items": [
+				{
+					"type": "doctype",
+					"name": "Subscriber",
+				},
+				{
+					"type": "doctype",
+					"name": "Subscription Plan",
+				},
+				{
+					"type": "doctype",
+					"name": "Subscription"
+				},
+				{
+					"type": "doctype",
+					"name": "Subscription Settings"
+				}
 			]
 		},
 		{
@@ -372,123 +459,32 @@ def get_data():
 			]
 		},
 		{
-			"label": _("Opening and Closing"),
+			"label": _("Profitability"),
 			"items": [
 				{
-					"type": "doctype",
-					"name": "Opening Invoice Creation Tool",
-				},
-				{
-					"type": "doctype",
-					"name": "Chart of Accounts Importer",
-				},
-				{
-					"type": "doctype",
-					"name": "Period Closing Voucher",
-					"description": _("Close Balance Sheet and book Profit or Loss.")
-				},
-			]
-		},
-		{
-			"label": _("Cost Center and Budgeting"),
-			"items": [
-				{
-					"type": "doctype",
-					"name": "Cost Center",
-					"icon": "fa fa-sitemap",
-					"label": _("Chart of Cost Centers"),
-					"route": "#Tree/Cost Center",
-					"description": _("Tree of financial Cost Centers."),
-				},
-				{
-					"type": "doctype",
-					"name": "Budget",
-					"description": _("Define budget for a financial year.")
-				},
-				{
-					"type": "doctype",
-					"name": "Accounting Dimension",
+					"type": "report",
+					"name": "Gross Profit",
+					"doctype": "Sales Invoice",
+					"is_query_report": True
 				},
 				{
 					"type": "report",
-					"name": "Budget Variance Report",
+					"name": "Profitability Analysis",
+					"doctype": "GL Entry",
 					"is_query_report": True,
-					"doctype": "Cost Center"
-				},
-				{
-					"type": "doctype",
-					"name": "Monthly Distribution",
-					"description": _("Seasonality for setting budgets, targets etc.")
-				},
-			]
-		},
-		{
-			"label": _("Multi Currency"),
-			"items": [
-				{
-					"type": "doctype",
-					"name": "Currency",
-					"description": _("Enable / disable currencies.")
-				},
-				{
-					"type": "doctype",
-					"name": "Currency Exchange",
-					"description": _("Currency exchange rate master.")
-				},
-				{
-					"type": "doctype",
-					"name": "Exchange Rate Revaluation",
-					"description": _("Exchange Rate Revaluation master.")
-				},
-			]
-		},
-		{
-			"label": _("Subscription Management"),
-			"items": [
-				{
-					"type": "doctype",
-					"name": "Subscriber",
-				},
-				{
-					"type": "doctype",
-					"name": "Subscription Plan",
-				},
-				{
-					"type": "doctype",
-					"name": "Subscription"
-				},
-				{
-					"type": "doctype",
-					"name": "Subscription Settings"
-				}
-			]
-		},
-		{
-			"label": _("Share Management"),
-			"icon": "fa fa-microchip ",
-			"items": [
-				{
-					"type": "doctype",
-					"name": "Shareholder",
-					"description": _("List of available Shareholders with folio numbers")
-				},
-				{
-					"type": "doctype",
-					"name": "Share Transfer",
-					"description": _("List of all share transactions"),
 				},
 				{
 					"type": "report",
-					"name": "Share Ledger",
-					"doctype": "Share Transfer",
-					"is_query_report": True
+					"name": "Sales Invoice Trends",
+					"is_query_report": True,
+					"doctype": "Sales Invoice"
 				},
 				{
 					"type": "report",
-					"name": "Share Balance",
-					"doctype": "Share Transfer",
-					"is_query_report": True
-				}
+					"name": "Purchase Invoice Trends",
+					"is_query_report": True,
+					"doctype": "Purchase Invoice"
+				},
 			]
 		},
 		{
@@ -534,27 +530,34 @@ def get_data():
 			]
 		},
 		{
-			"label": _("Settings"),
-			"icon": "fa fa-cog",
+			"label": _("Share Management"),
+			"icon": "fa fa-microchip ",
 			"items": [
 				{
 					"type": "doctype",
-					"name": "Payment Gateway Account",
-					"description": _("Setup Gateway accounts.")
+					"name": "Shareholder",
+					"description": _("List of available Shareholders with folio numbers")
 				},
 				{
 					"type": "doctype",
-					"name": "Terms and Conditions",
-					"label": _("Terms and Conditions Template"),
-					"description": _("Template of terms or contract.")
+					"name": "Share Transfer",
+					"description": _("List of all share transactions"),
 				},
 				{
-					"type": "doctype",
-					"name": "Mode of Payment",
-					"description": _("e.g. Bank, Cash, Credit Card")
+					"type": "report",
+					"name": "Share Ledger",
+					"doctype": "Share Transfer",
+					"is_query_report": True
 				},
+				{
+					"type": "report",
+					"name": "Share Balance",
+					"doctype": "Share Transfer",
+					"is_query_report": True
+				}
 			]
 		},
+
 	]
 
 	gst = {

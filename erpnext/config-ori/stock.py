@@ -92,35 +92,37 @@ def get_data():
 			]
 		},
 		{
-			"label": _("Tools"),
-			"icon": "fa fa-wrench",
+			"label": _("Settings"),
+			"icon": "fa fa-cog",
 			"items": [
 				{
 					"type": "doctype",
-					"name": "Stock Reconciliation",
+					"name": "Stock Settings",
 					"onboard": 1,
 				},
 				{
 					"type": "doctype",
-					"name": "Landed Cost Voucher",
+					"name": "Warehouse",
 					"onboard": 1,
 				},
 				{
 					"type": "doctype",
-					"name": "Packing Slip",
+					"name": "UOM",
+					"label": _("Unit of Measure") + " (UOM)",
 					"onboard": 1,
 				},
 				{
 					"type": "doctype",
-					"name": "Quality Inspection",
+					"name": "Brand",
+					"onboard": 1,
 				},
 				{
 					"type": "doctype",
-					"name": "Quality Inspection Template",
+					"name": "Item Attribute",
 				},
 				{
 					"type": "doctype",
-					"name": "Quick Stock Balance",
+					"name": "Item Variant Settings",
 				},
 			]
 		},
@@ -213,37 +215,35 @@ def get_data():
 			]
 		},
 		{
-			"label": _("Settings"),
-			"icon": "fa fa-cog",
+			"label": _("Tools"),
+			"icon": "fa fa-wrench",
 			"items": [
 				{
 					"type": "doctype",
-					"name": "Stock Settings",
+					"name": "Stock Reconciliation",
 					"onboard": 1,
 				},
 				{
 					"type": "doctype",
-					"name": "Warehouse",
+					"name": "Landed Cost Voucher",
 					"onboard": 1,
 				},
 				{
 					"type": "doctype",
-					"name": "UOM",
-					"label": _("Unit of Measure") + " (UOM)",
+					"name": "Packing Slip",
 					"onboard": 1,
 				},
 				{
 					"type": "doctype",
-					"name": "Brand",
-					"onboard": 1,
+					"name": "Quality Inspection",
 				},
 				{
 					"type": "doctype",
-					"name": "Item Attribute",
+					"name": "Quality Inspection Template",
 				},
 				{
 					"type": "doctype",
-					"name": "Item Variant Settings",
+					"name": "Quick Stock Balance",
 				},
 			]
 		},

@@ -9,10 +9,6 @@ def get_data():
 			"items": [
 				{
 					"type": "doctype",
-					"name": "Lead Source",
-					"description": _("Track Leads by Lead Source.")
-				},				{
-					"type": "doctype",
 					"name": "Lead",
 					"description": _("Database of potential customers."),
 					"onboard": 1,
@@ -31,46 +27,9 @@ def get_data():
 				},
 				{
 					"type": "doctype",
-					"name": "Contract",
-					"description": _("Helps you keep tracks of Contracts based on Supplier, Customer and Employee"),
-				},
-			]
-		},
-				{
-			"label": _("Campaigns"),
-			"icon": "fa fa-list",
-			"items": [
-				{
-					"type": "doctype",
-					"name": "Newsletter",
-					"label": _("Newsletter"),
-				},
-				{
-					"type": "doctype",
-					"name": "Campaign",
-					"description": _("Sales campaigns."),
-				},
-				{
-					"type": "doctype",
-					"name": "Email Campaign",
-					"description": _("Sends Mails to lead or contact based on a Campaign schedule"),
-				},
-			]
-		},
-		{
-			"label": _("Communications"),
-			"icon": "fa fa-list",
-			"items": [
-				{
-					"type": "doctype",
 					"name": "Contact",
 					"description": _("All Contacts."),
 					"onboard": 1,
-				},
-				{
-					"type": "doctype",
-					"name": "Appointment",
-					"description" : _("Helps you manage appointments with your leads"),
 				},
 				{
 					"type": "doctype",
@@ -79,14 +38,24 @@ def get_data():
 				},
 				{
 					"type": "doctype",
-					"name": "SMS Center",
-					"description":_("Send mass SMS to your contacts"),
+					"name": "Lead Source",
+					"description": _("Track Leads by Lead Source.")
 				},
 				{
 					"type": "doctype",
-					"name": "SMS Log",
-					"description":_("Logs for maintaining sms delivery status"),
+					"name": "Contract",
+					"description": _("Helps you keep tracks of Contracts based on Supplier, Customer and Employee"),
 				},
+				{
+					"type": "doctype",
+					"name": "Appointment",
+					"description" : _("Helps you manage appointments with your leads"),
+				},
+        {
+          "type": "doctype",
+					"name": "Newsletter",
+					"label": _("Newsletter"),
+				}
 			]
 		},
 		{
@@ -152,7 +121,7 @@ def get_data():
 			]
 		},
 		{
-			"label": _("Setup"),
+			"label": _("Settings"),
 			"icon": "fa fa-cog",
 			"items": [
 				{
@@ -184,14 +153,34 @@ def get_data():
 				},
 				{
 					"type": "doctype",
-					"name": "Address Template",
-					"description": _("Country wise default Address Templates")
+					"name": "Campaign",
+					"description": _("Sales campaigns."),
+				},
+				{
+					"type": "doctype",
+					"name": "Email Campaign",
+					"description": _("Sends Mails to lead or contact based on a Campaign schedule"),
+				},
+				{
+					"type": "doctype",
+					"name": "SMS Center",
+					"description":_("Send mass SMS to your contacts"),
+				},
+				{
+					"type": "doctype",
+					"name": "SMS Log",
+					"description":_("Logs for maintaining sms delivery status"),
+				},
+				{
+					"type": "doctype",
+					"name": "SMS Settings",
+					"description": _("Setup SMS gateway settings")
 				},
 				{
 					"type": "doctype",
 					"label": _("Email Group"),
 					"name": "Email Group",
-				},
+				}
 			]
 		},
 		{
@@ -222,4 +211,19 @@ def get_data():
 				},
 			]
 		},
+		# {
+		# 	"label": _("Help"),
+		# 	"items": [
+		# 		{
+		# 			"type": "help",
+		# 			"label": _("Lead to Quotation"),
+		# 			"youtube_id": "TxYX4r4JAKA"
+		# 		},
+		# 		{
+		# 			"type": "help",
+		# 			"label": _("Newsletters"),
+		# 			"youtube_id": "muLKsCrrDRo"
+		# 		},
+		# 	]
+		# },
 	]

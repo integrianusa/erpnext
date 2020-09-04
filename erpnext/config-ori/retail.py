@@ -4,7 +4,7 @@ from frappe import _
 def get_data():
 	return [
 		{
-            "label": _("Point of Sales"),
+            "label": _("Retail Operations"),
             "items": [
                 {
                     "type": "doctype",
@@ -30,13 +30,7 @@ def get_data():
                     "type": "doctype",
                     "name": "POS Settings",
                     "description": _("Setup mode of POS (Online / Offline)")
-                }
-            ]
-        },
-		{
-            "label": _("Loyalty Programs"),
-            "items": [
-
+                },
                 {
                     "type": "doctype",
                     "name": "Loyalty Program",
