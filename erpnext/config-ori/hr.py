@@ -84,60 +84,6 @@ def get_data():
 			]
 		},
 		{
-			"label": _("Payroll"),
-			"items": [
-				{
-					"type": "doctype",
-					"name": "Salary Structure",
-					"onboard": 1,
-				},
-				{
-					"type": "doctype",
-					"name": "Salary Structure Assignment",
-					"onboard": 1,
-					"dependencies": ["Salary Structure", "Employee"],
-				},
-				{
-					"type": "doctype",
-					"name": "Payroll Entry",
-					"onboard": 1,
-				},
-				{
-					"type": "doctype",
-					"name": "Salary Slip",
-					"onboard": 1,
-				},
-				{
-					"type": "doctype",
-					"name": "Payroll Period",
-				},
-				{
-					"type": "doctype",
-					"name": "Salary Component",
-				},
-				{
-					"type": "doctype",
-					"name": "Additional Salary",
-				},
-				{
-					"type": "doctype",
-					"name": "Retention Bonus",
-					"dependencies": ["Employee"]
-				},
-				{
-					"type": "doctype",
-					"name": "Employee Incentive",
-					"dependencies": ["Employee"]
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Salary Register",
-					"doctype": "Salary Slip"
-				},
-			]
-		},
-		{
 			"label": _("Leaves"),
 			"items": [
 				{
@@ -197,6 +143,64 @@ def get_data():
 			]
 		},
 		{
+			"label": _("Payroll"),
+			"items": [
+				{
+					"type": "doctype",
+					"name": "Salary Structure",
+					"onboard": 1,
+				},
+				{
+					"type": "doctype",
+					"name": "Salary Structure Assignment",
+					"onboard": 1,
+					"dependencies": ["Salary Structure", "Employee"],
+				},
+				{
+					"type": "doctype",
+					"name": "Payroll Entry",
+					"onboard": 1,
+				},
+				{
+					"type": "doctype",
+					"name": "Salary Slip",
+					"onboard": 1,
+				},
+				{
+					"type": "doctype",
+					"name": "Payroll Period",
+				},
+				{
+					"type": "doctype",
+					"name": "Income Tax Slab",
+				},
+				{
+					"type": "doctype",
+					"name": "Salary Component",
+				},
+				{
+					"type": "doctype",
+					"name": "Additional Salary",
+				},
+				{
+					"type": "doctype",
+					"name": "Retention Bonus",
+					"dependencies": ["Employee"]
+				},
+				{
+					"type": "doctype",
+					"name": "Employee Incentive",
+					"dependencies": ["Employee"]
+				},
+				{
+					"type": "report",
+					"is_query_report": True,
+					"name": "Salary Register",
+					"doctype": "Salary Slip"
+				},
+			]
+		},
+		{
 			"label": _("Employee Tax and Benefits"),
 			"items": [
 				{
@@ -208,6 +212,10 @@ def get_data():
 					"type": "doctype",
 					"name": "Employee Tax Exemption Proof Submission",
 					"dependencies": ["Employee"]
+				},
+				{
+					"type": "doctype",
+					"name": "Employee Other Income",
 				},
 				{
 					"type": "doctype",

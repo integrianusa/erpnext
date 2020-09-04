@@ -1,8 +1,9 @@
 from __future__ import unicode_literals
+import frappe
 from frappe import _
 
 def get_data():
-	return [
+	config =  [
 		{
 			"label": _("Purchasing"),
 			"icon": "fa fa-star",
@@ -139,32 +140,6 @@ def get_data():
 			]
 		},
 		{
-			"label": _("Supplier Scorecard"),
-			"items": [
-				{
-					"type": "doctype",
-					"name": "Supplier Scorecard",
-					"description": _("All Supplier scorecards."),
-				},
-				{
-					"type": "doctype",
-					"name": "Supplier Scorecard Variable",
-					"description": _("Templates of supplier scorecard variables.")
-				},
-				{
-					"type": "doctype",
-					"name": "Supplier Scorecard Criteria",
-					"description": _("Templates of supplier scorecard criteria."),
-				},
-				{
-					"type": "doctype",
-					"name": "Supplier Scorecard Standing",
-					"description": _("Templates of supplier standings."),
-				},
-
-			]
-		},
-		{
 			"label": _("Key Reports"),
 			"icon": "fa fa-table",
 			"items": [
@@ -209,6 +184,32 @@ def get_data():
 			]
 		},
 		{
+			"label": _("Supplier Scorecard"),
+			"items": [
+				{
+					"type": "doctype",
+					"name": "Supplier Scorecard",
+					"description": _("All Supplier scorecards."),
+				},
+				{
+					"type": "doctype",
+					"name": "Supplier Scorecard Variable",
+					"description": _("Templates of supplier scorecard variables.")
+				},
+				{
+					"type": "doctype",
+					"name": "Supplier Scorecard Criteria",
+					"description": _("Templates of supplier scorecard criteria."),
+				},
+				{
+					"type": "doctype",
+					"name": "Supplier Scorecard Standing",
+					"description": _("Templates of supplier standings."),
+				},
+
+			]
+		},
+		{
 			"label": _("Other Reports"),
 			"icon": "fa fa-list",
 			"items": [
@@ -243,3 +244,21 @@ def get_data():
 		},
 
 	]
+
+	regional = {
+			"label": _("Regional"),
+			"items": [
+				{
+				"type": "doctype",
+				"name": "Import Supplier Invoice",
+				"description": _("Import Italian Supplier Invoice."),
+				"onboard": 1,
+				}
+			]
+		}
+
+	countries = frappe.get_all("Company", fields="country")
+	countries = [country["country"] for country in countries]
+	if "Italy" in countries:
+		config.append(regional)
+	return config

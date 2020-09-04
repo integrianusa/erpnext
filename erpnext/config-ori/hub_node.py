@@ -8,8 +8,17 @@ def get_data():
 			"items": [
 				{
 					"type": "doctype",
-					"name": "Woocommerce Settings"
+					"name": "Marketplace Settings"
 				},
 			]
-		}
+		},
+		{
+			"label": _("Marketplace"),
+			"items": [
+				{
+					"type": "page",
+					"name": "marketplace/home"
+				},
+			]
+		},
 	]

@@ -48,69 +48,29 @@ def get_setup_stages(args=None):
 				]
 			},
 			{
-				'status': _('Setting company fixtures'),
-				'fail_msg': 'Failed to set company fixtures',
+				'status': _('Setting defaults'),
+				'fail_msg': 'Failed to set defaults',
 				'tasks': [
 					{
 						'fn': setup_post_company_fixtures,
 						'args': args,
 						'fail_msg': _("Failed to setup post company fixtures")
-					}
-				]
-			},
-			{
-				'status': _('Setting defaults'),
-				'fail_msg': 'Failed to set defaults',
-				'tasks': [
+					},
 					{
 						'fn': setup_defaults,
 						'args': args,
 						'fail_msg': _("Failed to setup defaults")
-					}
-				]
-			},
-			{
-				'status': _('Creating website'),
-				'fail_msg': 'Failed to create website',
-				'tasks': [
+					},
 					{
-						'fn': create_website,
+						'fn': stage_four,
 						'args': args,
 						'fail_msg': _("Failed to create website")
-					}
-				]
-			},
-			{
-				'status': _('Set email digest'),
-				'fail_msg': 'Failed to set email digest',
-				'tasks': [
-					{
-						'fn': set_email_digest,
-						'args': args,
-						'fail_msg': _("Failed to set email digest")
-					}
-				]
-			},
-			{
-				'status': _('Setting logo'),
-				'fail_msg': 'Failed to set logo',
-				'tasks': [
-					{
-						'fn': set_logo,
-						'args': args,
-						'fail_msg': _("Failed to set logo")
-					}
-				]
-			},
-			{
-				'status': _('Adding domain'),
-				'fail_msg': 'Failed to add domain',
-				'tasks': [
+					},
 					{
 						'fn': set_active_domains,
 						'args': args,
 						'fail_msg': _("Failed to add Domain")
-					}
+					},
 				]
 			},
 			{
@@ -140,18 +100,10 @@ def setup_post_company_fixtures(args):
 def setup_defaults(args):
 	fixtures.install_defaults(frappe._dict(args))
 
-def create_website(args):
+def stage_four(args):
 	company_setup.create_website(args)
-
-def set_email_digest(args):
 	company_setup.create_email_digest()
-
-def set_logo(args):
 	company_setup.create_logo(args)
-
-def set_active_domains(args):
-	domain_settings = frappe.get_single('Domain Settings')
-	domain_settings.set_active_domains(args.get('domains'))
 
 def fin(args):
 	frappe.local.message_log = []
@@ -179,9 +131,9 @@ def setup_complete(args=None):
 	setup_company(args)
 	setup_post_company_fixtures(args)
 	setup_defaults(args)
-	create_website(args)
-	set_email_digest(args)
-	set_logo(args)	
+	stage_four(args)
 	fin(args)
 
-
+def set_active_domains(args):
+	domain_settings = frappe.get_single('Domain Settings')
+	domain_settings.set_active_domains(args.get('domains'))

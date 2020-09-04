@@ -45,6 +45,16 @@ def get_data():
 			]
 		},
 		{
+			"label": _("Meeting"),
+			"items": [
+				{
+					"type": "doctype",
+					"name": "Quality Meeting",
+					"description":_("Quality Meeting"),
+				}
+			]
+		},
+		{
 			"label": _("Feedback"),
 			"items": [
 				{
@@ -60,13 +70,4 @@ def get_data():
 				}
 			]
 		},
-		{
-			"label": _("Meeting"),
-			"items": [
-				{
-					"type": "doctype",
-					"name": "Quality Meeting",
-					"description":_("Quality Meeting"),
-				}
-			]
-		},	]
+	]
