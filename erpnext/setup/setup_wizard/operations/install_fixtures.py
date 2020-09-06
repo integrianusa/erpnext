@@ -18,6 +18,7 @@ default_lead_sources = ["Existing Customer", "Reference", "Advertisement",
 default_sales_partner_type = ["Channel Partner", "Distributor", "Dealer", "Agent",
 	"Retailer", "Implementation Partner", "Reseller"]
 
+#setup_wizard #1
 def install(country=None):
 	records = [
 	# domains
@@ -385,7 +386,7 @@ def install(country=None):
 	# if os.path.exists(path.encode("utf-8")):
 	# 	frappe.get_attr("erpnext.regional.{0}.setup.setup_company_independent_fixtures".format(frappe.scrub(country)))()
 
-
+#setup_wizard #1a
 def set_more_defaults():
 # Do more setup stuff that can be done here with no dependencies
 # selling_settings
@@ -396,6 +397,7 @@ def set_more_defaults():
 	selling_settings.dn_required = "No"
 	selling_settings.allow_multiple_items = 1
 	selling_settings.sales_update_frequency = "Each Transaction"
+	selling_settings.campaign_naming_by = "Campaign Name"
 	selling_settings.save()
 # add_uom_data
 	add_uom_data()
@@ -419,10 +421,11 @@ def set_more_defaults():
 	hr_settings.retirement_age = "60"
 	hr_settings.emp_created_by = _("Employee Number")
 	hr_settings.email_salary_slip_to_employee = 0
+	hr_settings.stop_birthday_reminders = 1
 	hr_settings.save()
 # manufacturing_settings
 	manufacturing_settings = frappe.get_doc("Manufacturing Settings")
-    manufacturing_settings.allow_overtime = 1
+	manufacturing_settings.allow_overtime = 1
 	manufacturing_settings.save()
 # pos_settings
 	pos_settings = frappe.get_doc("POS Settings")
@@ -430,33 +433,20 @@ def set_more_defaults():
 	pos_settings.save()
 # website_settings
 	website_settings = frappe.get_doc("Website Settings")
-    website_settings.chat_welcome_message = "Hi, apa yang bisa kami bantu?"
-    website_settings.chat_room_name = "Bantuan"
-    website_settings.chat_enable_from = "07:00:00"
-    website_settings.chat_enable_to = "18:00:00"
-    website_settings.hide_footer_signup = 1
+	website_settings.chat_welcome_message = "Hi, apa yang bisa kami bantu?"
+	website_settings.chat_room_name = "Bantuan"
+	website_settings.chat_enable_from = "07:00:00"
+	website_settings.chat_enable_to = "18:00:00"
+	website_settings.hide_footer_signup = 1
+	website_settings.disable_signup = 1
 	website_settings.save()
-# homepage_description
-	homepage_description = frappe.get_doc("Homepage")
-	homepage_description.tag_line = _("UMKM Indonesia")
-    homepage_description.description = _("This is automatically created example website")
-	homepage_description.save()
-# shopping_cart_settings
-	shopping_cart_settings = frappe.get_doc("Shopping Cart Settings")
-    shopping_cart_settings.enabled = "1"
-    shopping_cart_settings.show_stock_availability = "1"
-    shopping_cart_settings.show_quantity_in_website = "1"
-    shopping_cart_settings.show_price = "1"
-    shopping_cart_settings.quotation_series = "SAL-QTN-.YYYY.-")
-    shopping_cart_settings.enable_checkout = "0"
-	shopping_cart_settings.save()
 # marketplace_settings
 	marketplace_settings = frappe.get_doc("Marketplace Settings")
 	marketplace_settings.marketplace_url = "https://puniamarket.com/"
-	marketplace_settings.disable_marketplace = "1"
+	marketplace_settings.disable_marketplace = 1
 	marketplace_settings.save()
 
-
+#setup_wizard #1b
 def add_uom_data():
 	# add UOMs
 	uoms = json.loads(open(frappe.get_app_path("erpnext", "setup", "setup_wizard", "data", "uom_data.json")).read())
@@ -511,6 +501,7 @@ def add_uom_data():
 
 	# make_records(records)
 
+#setup_wizard #2
 def install_company(args):
 	records = [
 		# Fiscal Year
@@ -537,7 +528,7 @@ def install_company(args):
 
 	make_records(records)
 
-
+#setup_wizard #3
 def install_post_company_fixtures(args=None):
 	records = [
 		# Department
@@ -555,11 +546,13 @@ def install_post_company_fixtures(args=None):
 		{'doctype': 'Department', 'department_name': _('Quality Management'), 'parent_department': _('All Departments'), 'company': args.company_name},
 		{'doctype': 'Department', 'department_name': _('Research & Development'), 'parent_department': _('All Departments'), 'company': args.company_name},
 		{'doctype': 'Department', 'department_name': _('Legal'), 'parent_department': _('All Departments'), 'company': args.company_name},
+		# Marketplace
+		{'doctype': 'Marketplace Settings', 'company': args.company_name },
 	]
 
 	make_records(records)
 
-
+#setup_wizard #4
 def install_defaults(args=None):
 	records = [
 # Price Lists
@@ -613,13 +606,26 @@ def install_defaults(args=None):
 	stock_settings.save()
 #selling settings
 	selling_settings = frappe.get_doc("Selling Settings")
-	selling_settings.campaign_naming_by = "Campaign Name"
 	selling_settings.territory = "Indonesia"
 	selling_settings.save()
 #buying settings
 	buying_settings = frappe.get_doc("Buying Settings")
 	buying_settings.supplier_group = "Distributor"
 	buying_settings.save()
+# homepage_description
+	# homepage_description = frappe.get_doc("Homepage")
+	# homepage_description.tag_line = _("UMKM Indonesia")
+	# homepage_description.description = _("This is automatically created example website")
+	# homepage_description.save()
+# shopping_cart_settings
+	# shopping_cart_settings = frappe.get_doc("Shopping Cart Settings")
+	# shopping_cart_settings.enabled = 1
+	# shopping_cart_settings.show_stock_availability = 1
+	# shopping_cart_settings.show_quantity_in_website = 1
+	# shopping_cart_settings.show_price = 1
+	# shopping_cart_settings.quotation_series = "SAL-QTN-.YYYY.-"
+	# shopping_cart_settings.enable_checkout = 1
+	# shopping_cart_settings.save()
 #bank account
 	if args.bank_account:
 		company_name = args.company_name
