@@ -376,11 +376,11 @@ def install(country=None):
 # Records for the Supplier Scorecard
 	from erpnext.buying.doctype.supplier_scorecard.supplier_scorecard import make_default_records
 	make_default_records()
-#make above record lists
+# make above record lists
 	make_records(records)
-#set more defaults ==>
+# set more defaults ==>
 	set_more_defaults()
-#update global search ==>
+# update global search ==>
 	update_global_search_doctypes()
 
 	# path = frappe.get_app_path('erpnext', 'regional', frappe.scrub(country))
@@ -396,111 +396,6 @@ def set_more_defaults():
 	doc = frappe.get_doc('Item Variant Settings')
 	doc.set_default_fields()
 	doc.save()
-# selling_settings
-	# selling_settings = frappe.get_doc("Selling Settings")
-	# selling_settings.set_default_customer_group_and_territory()
-	# selling_settings.cust_master_name = "Customer Name"
-	# selling_settings.so_required = "No"
-	# selling_settings.dn_required = "No"
-	# selling_settings.allow_multiple_items = 1
-	# selling_settings.sales_update_frequency = "Each Transaction"
-	# selling_settings.campaign_naming_by = "Campaign Name"
-	# selling_settings.save()
-# buying_settings
-	# buying_settings = frappe.get_doc("Buying Settings")
-	# buying_settings.supp_master_name = "Supplier Name"
-	# buying_settings.po_required = "No"
-	# buying_settings.pr_required = "No"
-	# buying_settings.maintain_same_rate = 1
-	# buying_settings.allow_multiple_items = 1
-	# buying_settings.save()
-# hr_settings
-	# hr_settings = frappe.get_doc("HR Settings")
-	# hr_settings.emp_created_by = "Naming Series"
-	# hr_settings.leave_approval_notification_template = _("Leave Approval Notification")
-	# hr_settings.leave_status_notification_template = _("Leave Status Notification")
-	# hr_settings.retirement_age = "60"
-	# hr_settings.emp_created_by = _("Employee Number")
-	# hr_settings.email_salary_slip_to_employee = 0
-	# hr_settings.stop_birthday_reminders = 1
-	# hr_settings.save()
-# manufacturing_settings
-	# manufacturing_settings = frappe.get_doc("Manufacturing Settings")
-	# manufacturing_settings.allow_overtime = 1
-	# manufacturing_settings.save()
-# pos_settings
-	# pos_settings = frappe.get_doc("POS Settings")
-	# pos_settings.use_pos_in_offline_mode = 1
-	# pos_settings.save()
-# website_settings
-	# website_settings = frappe.get_doc("Website Settings")
-	# website_settings.chat_welcome_message = "Hi, apa yang bisa kami bantu?"
-	# website_settings.chat_room_name = "Bantuan"
-	# website_settings.chat_enable_from = "07:00:00"
-	# website_settings.chat_enable_to = "18:00:00"
-	# website_settings.hide_footer_signup = 1
-	# website_settings.disable_signup = 1
-	# website_settings.save()
-# marketplace_settings
-	# marketplace_settings = frappe.get_doc("Marketplace Settings")
-	# marketplace_settings.marketplace_url = "https://puniamarket.com/"
-	# marketplace_settings.disable_marketplace = 1
-	# marketplace_settings.save()
-
-#setup_wizard #1b
-def add_uom_data():
-	# add UOMs
-	uoms = json.loads(open(frappe.get_app_path("erpnext", "setup", "setup_wizard", "data", "uom_data.json")).read())
-	for d in uoms:
-		if not frappe.db.exists('UOM', _(d.get("uom_name"))):
-			uom_doc = frappe.get_doc({
-				"doctype": "UOM",
-				"uom_name": _(d.get("uom_name")),
-				"name": _(d.get("uom_name")),
-				"must_be_whole_number": d.get("must_be_whole_number")
-			}).insert(ignore_permissions=True)
-
-	# bootstrap uom conversion factors
-	uom_conversions = json.loads(open(frappe.get_app_path("erpnext", "setup", "setup_wizard", "data", "uom_conversion_data.json")).read())
-	for d in uom_conversions:
-		if not frappe.db.exists("UOM Category", _(d.get("category"))):
-			frappe.get_doc({
-				"doctype": "UOM Category",
-				"category_name": _(d.get("category"))
-			}).insert(ignore_permissions=True)
-
-		if not frappe.db.exists("UOM Conversion Factor", {"from_uom": _(d.get("from_uom")), "to_uom": _(d.get("to_uom"))}):
-			uom_conversion = frappe.get_doc({
-				"doctype": "UOM Conversion Factor",
-				"category": _(d.get("category")),
-				"from_uom": _(d.get("from_uom")),
-				"to_uom": _(d.get("to_uom")),
-				"value": d.get("value")
-			}).insert(ignore_permissions=True)
-
-# def add_market_segments():
-	# records = [
-	# 	# Market Segments
-	# 	{"doctype": "Market Segment", "market_segment": _("Lower Income")},
-	# 	{"doctype": "Market Segment", "market_segment": _("Middle Income")},
-	# 	{"doctype": "Market Segment", "market_segment": _("Upper Income")}
-	# ]
-
-	# make_records(records)
-
-# def add_sale_stages():
-	# records = [
-	# 	{"doctype": "Sales Stage", "stage_name": _("Prospecting")},
-	# 	{"doctype": "Sales Stage", "stage_name": _("Qualification")},
-	# 	{"doctype": "Sales Stage", "stage_name": _("Needs Analysis")},
-	# 	{"doctype": "Sales Stage", "stage_name": _("Value Proposition")},
-	# 	{"doctype": "Sales Stage", "stage_name": _("Identifying Decision Makers")},
-	# 	{"doctype": "Sales Stage", "stage_name": _("Perception Analysis")},
-	# 	{"doctype": "Sales Stage", "stage_name": _("Proposal/Price Quote")},
-	# 	{"doctype": "Sales Stage", "stage_name": _("Negotiation/Review")}
-	# ]
-
-	# make_records(records)
 
 #setup_wizard #2
 def install_company(args):
@@ -561,9 +456,20 @@ def install_defaults(args=None):
 		{ "doctype": "Price List", "price_list_name": _("Standard Selling"), "enabled": 1, "buying": 0, "selling": 1, "currency": args.currency },
 	]
 	make_records(records)
-#enable default currency
+# enable default currency
 	frappe.db.set_value("Currency", args.get("currency"), "enabled", 1)
-#global defaults
+# system settings
+	system_settings = frappe.get_doc("System Settings")
+	system_settings.email_footer_address = args.get("company_name")
+	system_settings.float_precision = "2"
+	system_settings.currency_precision = "2"
+	system_settings.enable_chat = "0"
+	system_settings.allow_login_using_mobile_number = "1"
+	system_settings.allow_login_using_user_name = "1"
+	system_settings.allow_error_traceback = "0"
+	system_settings.two_factor_method = "Email"
+	system_settings.save()
+# global defaults
 	global_defaults = frappe.get_doc("Global Defaults", "Global Defaults")
 	current_fiscal_year = frappe.get_all("Fiscal Year")[0]
 
@@ -577,21 +483,10 @@ def install_defaults(args=None):
 	})
 
 	global_defaults.save()
-#system settings
-	system_settings = frappe.get_doc("System Settings")
-	system_settings.email_footer_address = args.get("company_name")
-	system_settings.float_precision = "2"
-	system_settings.currency_precision = "2"
-	system_settings.enable_chat = "0"
-	system_settings.allow_login_using_mobile_number = "1"
-	system_settings.allow_login_using_user_name = "1"
-	system_settings.allow_error_traceback = "0"
-	system_settings.two_factor_method = "Email"
-	system_settings.save()
-#domain settings
+# domain settings
 	domain_settings = frappe.get_single('Domain Settings')
 	domain_settings.set_active_domains(args.get('domains'))
-#stock settings
+# stock settings
 	stock_settings = frappe.get_doc("Stock Settings")
 	stock_settings.item_naming_by = "Item Code"
 	stock_settings.valuation_method = "FIFO"
@@ -602,15 +497,8 @@ def install_defaults(args=None):
 	stock_settings.set_qty_in_transactions_based_on_serial_no_input = 1
 	stock_settings.item_group = "Products"
 	stock_settings.show_barcode_field = 1
+	stock_settings.stock_uom = "Unit"
 	stock_settings.save()
-#selling settings
-	# selling_settings = frappe.get_doc("Selling Settings")
-	# selling_settings.territory = "Indonesia"
-	# selling_settings.save()
-#buying settings
-	# buying_settings = frappe.get_doc("Buying Settings")
-	# buying_settings.supplier_group = "Distributor"
-	# buying_settings.save()
 # selling_settings
 	selling_settings = frappe.get_doc("Selling Settings")
 	selling_settings.set_default_customer_group_and_territory()
@@ -663,21 +551,13 @@ def install_defaults(args=None):
 	marketplace_settings.marketplace_url = "https://puniamarket.com/"
 	marketplace_settings.disable_marketplace = 1
 	marketplace_settings.save()
-# shopping_cart_settings
-	# shopping_cart_settings = frappe.get_doc("Shopping Cart Settings")
-	# shopping_cart_settings.enabled = 1
-	# shopping_cart_settings.show_stock_availability = 1
-	# shopping_cart_settings.show_quantity_in_website = 1
-	# shopping_cart_settings.show_price = 1
-	# shopping_cart_settings.quotation_series = "SAL-QTN-.YYYY.-"
-	# shopping_cart_settings.enable_checkout = 1
-	# shopping_cart_settings.save()
 # homepage_description
 	homepage_description = frappe.get_doc("Homepage")
-	homepage_description.tag_line = _("UMKM Indonesia")
-	homepage_description.description = _("This is automatically created example website")
+	# homepage_description.tag_line = _("UMKM Indonesia")
+	homepage_description.tag_line = args.company_name
+	homepage_description.description = _("Adalah anggota Punia untuk kemajuan UKM Indonesia")
 	homepage_description.save()
-#bank account
+# bank account
 	if args.bank_account:
 		company_name = args.company_name
 		bank_account_group =  frappe.db.get_value("Account",
@@ -702,10 +582,8 @@ def install_defaults(args=None):
 			except frappe.DuplicateEntryError:
 				# bank account same as a CoA entry
 				pass
-#add dashboard
+# add dashboard
 	add_dashboards()
-
-# Now, with fixtures out of the way, onto concrete stuff
 # Shopping cart: needs price lists
 	records = [
 		{
@@ -723,6 +601,36 @@ def install_defaults(args=None):
 	]
 
 	make_records(records)
+
+def add_uom_data():
+	# add UOMs
+	uoms = json.loads(open(frappe.get_app_path("erpnext", "setup", "setup_wizard", "data", "uom_data.json")).read())
+	for d in uoms:
+		if not frappe.db.exists('UOM', _(d.get("uom_name"))):
+			uom_doc = frappe.get_doc({
+				"doctype": "UOM",
+				"uom_name": _(d.get("uom_name")),
+				"name": _(d.get("uom_name")),
+				"must_be_whole_number": d.get("must_be_whole_number")
+			}).insert(ignore_permissions=True)
+
+	# bootstrap uom conversion factors
+	uom_conversions = json.loads(open(frappe.get_app_path("erpnext", "setup", "setup_wizard", "data", "uom_conversion_data.json")).read())
+	for d in uom_conversions:
+		if not frappe.db.exists("UOM Category", _(d.get("category"))):
+			frappe.get_doc({
+				"doctype": "UOM Category",
+				"category_name": _(d.get("category"))
+			}).insert(ignore_permissions=True)
+
+		if not frappe.db.exists("UOM Conversion Factor", {"from_uom": _(d.get("from_uom")), "to_uom": _(d.get("to_uom"))}):
+			uom_conversion = frappe.get_doc({
+				"doctype": "UOM Conversion Factor",
+				"category": _(d.get("category")),
+				"from_uom": _(d.get("from_uom")),
+				"to_uom": _(d.get("to_uom")),
+				"value": d.get("value")
+			}).insert(ignore_permissions=True)
 
 def add_dashboards():
 	from erpnext.setup.setup_wizard.data.dashboard_charts import get_company_for_dashboards
