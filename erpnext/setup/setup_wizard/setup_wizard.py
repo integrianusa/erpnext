@@ -44,17 +44,11 @@ def get_setup_stages(args=None):
 						'fn': setup_company,
 						'args': args,
 						'fail_msg': _("Failed to setup company")
-					}
-				]
-			},
-			{
-				'status': _('Setting company fixtures'),
-				'fail_msg': 'Failed to set company fixtures',
-				'tasks': [
+					},
 					{
-						'fn': setup_post_company_fixtures,
+						'fn': setup_website,
 						'args': args,
-						'fail_msg': _("Failed to setup post company fixtures")
+						'fail_msg': _("Failed to setup website")
 					}
 				]
 			},
@@ -70,42 +64,10 @@ def get_setup_stages(args=None):
 				]
 			},
 			{
-				'status': _('Creating website'),
-				'fail_msg': 'Failed to create website',
+				'status': _('Setting domain'),
+				'fail_msg': 'Failed to set domain',
 				'tasks': [
-					{
-						'fn': create_website,
-						'args': args,
-						'fail_msg': _("Failed to create website")
-					}
-				]
-			},
-			{
-				'status': _('Set email digest'),
-				'fail_msg': 'Failed to set email digest',
-				'tasks': [
-					{
-						'fn': set_email_digest,
-						'args': args,
-						'fail_msg': _("Failed to set email digest")
-					}
-				]
-			},
-			{
-				'status': _('Setting logo'),
-				'fail_msg': 'Failed to set logo',
-				'tasks': [
-					{
-						'fn': set_logo,
-						'args': args,
-						'fail_msg': _("Failed to set logo")
-					}
-				]
-			},
-			{
-				'status': _('Adding domain'),
-				'fail_msg': 'Failed to add domain',
-				'tasks': [
+
 					{
 						'fn': set_active_domains,
 						'args': args,
@@ -133,21 +95,15 @@ def stage_fixtures(args):
 
 def setup_company(args):
 	fixtures.install_company(args)
-
-def setup_post_company_fixtures(args):
 	fixtures.install_post_company_fixtures(args)
+
+def setup_website(args):
+	company_setup.create_website(args)
+	company_setup.create_email_digest()
+	company_setup.create_logo(args)
 
 def setup_defaults(args):
 	fixtures.install_defaults(frappe._dict(args))
-
-def create_website(args):
-	company_setup.create_website(args)
-
-def set_email_digest(args):
-	company_setup.create_email_digest()
-
-def set_logo(args):
-	company_setup.create_logo(args)
 
 def set_active_domains(args):
 	domain_settings = frappe.get_single('Domain Settings')
@@ -177,11 +133,9 @@ def login_as_first_user(args):
 def setup_complete(args=None):
 	stage_fixtures(args)
 	setup_company(args)
-	setup_post_company_fixtures(args)
+	setup_website(args)
 	setup_defaults(args)
-	create_website(args)
-	set_email_digest(args)
-	set_logo(args)	
+	set_active_domains(args)
 	fin(args)
 
 
