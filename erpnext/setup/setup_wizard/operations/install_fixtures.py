@@ -34,6 +34,63 @@ def install(country=None):
 	# address template
 		{'doctype':"Address Template", "country": country},
 
+	# Designation
+		{'doctype': 'Designation', 'designation_name': _('CEO')},
+		{'doctype': 'Designation', 'designation_name': _('Manager')},
+		{'doctype': 'Designation', 'designation_name': _('Engineer')},
+		{'doctype': 'Designation', 'designation_name': _('Accountant')},
+		{'doctype': 'Designation', 'designation_name': _('Secretary')},
+		{'doctype': 'Designation', 'designation_name': _('Associate')},
+		{'doctype': 'Designation', 'designation_name': _('Finance Manager')},
+		{'doctype': 'Designation', 'designation_name': _('HR Manager')},
+		{'doctype': 'Designation', 'designation_name': _('Project Manager')},
+		{'doctype': 'Designation', 'designation_name': _('Marketing and Sales Manager')},
+		{'doctype': 'Designation', 'designation_name': _('Operation Manager')},
+		{'doctype': 'Designation', 'designation_name': _('Warehouse Manager')},
+		{'doctype': 'Designation', 'designation_name': _('Administrative Staff')},
+		{'doctype': 'Designation', 'designation_name': _('Finance Staff')},
+		{'doctype': 'Designation', 'designation_name': _('HR Staff')},
+		{'doctype': 'Designation', 'designation_name': _('Marketing & Sales Staff')},
+
+	# territory: with two default territories, one for home country and one named Rest of the World
+		{'doctype': 'Territory', 'territory_name': _('All Territories'), 'is_group': 1, 'name': _('All Territories'), 'parent_territory': ''},
+		{'doctype': 'Territory', 'territory_name': "Indonesia", 'is_group': 1, 'parent_territory': _('All Territories')},
+		{'doctype': 'Territory', 'territory_name': _("Rest Of The World"), 'is_group': 0, 'parent_territory': _('All Territories')},
+		{'doctype': 'Territory', 'territory_name': 'Nanggroe Aceh Darussalam', 'is_group': 0, 'name': 'Nanggroe Aceh Darussalam', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Sumatera Utara', 'is_group': 0, 'name': 'Sumatera Utara', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Sumatera Barat', 'is_group': 0, 'name': 'Sumatera Barat', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Riau', 'is_group': 0, 'name': 'Riau', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Kepulauan Riau', 'is_group': 0, 'name': 'Kepulauan Riau', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Jambi', 'is_group': 0, 'name': 'Jambi', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Sumatera Selatan', 'is_group': 0, 'name': 'Sumatera Selatan', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Bangka Belitung', 'is_group': 0, 'name': 'Bangka Belitung', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Bengkulu', 'is_group': 0, 'name': 'Bengkulu', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Lampung', 'is_group': 0, 'name': 'Lampung', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'DKI Jakarta', 'is_group': 0, 'name': 'DKI Jakarta', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Jawa Barat', 'is_group': 0, 'name': 'Jawa Barat', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Banten', 'is_group': 0, 'name': 'Banten', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Jawa Tengah', 'is_group': 0, 'name': 'Jawa Tengah', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'DI Yogyakarta', 'is_group': 0, 'name': 'DI Yogyakarta', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Jawa Timur', 'is_group': 0, 'name': 'Jawa Timur', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Bali', 'is_group': 0, 'name': 'Bali', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Nusa Tenggara Barat', 'is_group': 0, 'name': 'Nusa Tenggara Barat', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Nusa Tenggara Timur', 'is_group': 0, 'name': 'Nusa Tenggara Timur', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Kalimantan Barat', 'is_group': 0, 'name': 'Kalimantan Barat', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Kalimantan Tengah', 'is_group': 0, 'name': 'Kalimantan Tengah', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Kalimantan Selatan', 'is_group': 0, 'name': 'Kalimantan Selatan', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Kalimantan Timur', 'is_group': 0, 'name': 'Kalimantan Timur', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Kalimantan Utara', 'is_group': 0, 'name': 'Kalimantan Utara', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Sulawesi Utara', 'is_group': 0, 'name': 'Sulawesi Utara', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Sulawesi Barat', 'is_group': 0, 'name': 'Sulawesi Barat', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Sulawesi Tengah', 'is_group': 0, 'name': 'Sulawesi Tengah', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Sulawesi Tenggara', 'is_group': 0, 'name': 'Sulawesi Tenggara', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Sulawesi Selatan', 'is_group': 0, 'name': 'Sulawesi Selatan', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Gorontalo', 'is_group': 0, 'name': 'Gorontalo', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Maluku', 'is_group': 0, 'name': 'Maluku', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Maluku Utara', 'is_group': 0, 'name': 'Maluku Utara', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Papua Barat', 'is_group': 0, 'name': 'Papua Barat', 'parent_territory': 'Indonesia'},
+		{'doctype': 'Territory', 'territory_name': 'Papua', 'is_group': 0, 'name': 'Papua', 'parent_territory': 'Indonesia'},
+
 	# item group
 		{'doctype': 'Item Group', 'item_group_name': _('All Item Groups'),
 			'is_group': 1, 'parent_item_group': ''},
@@ -47,6 +104,22 @@ def install(country=None):
 			'is_group': 0, 'parent_item_group': _('All Item Groups') },
 		{'doctype': 'Item Group', 'item_group_name': _('Consumable'),
 			'is_group': 0, 'parent_item_group': _('All Item Groups') },
+
+	# customer group
+		{'doctype': 'Customer Group', 'customer_group_name': _('All Customer Groups'), 'is_group': 1, 	'name': _('All Customer Groups'), 'parent_customer_group': ''},
+		{'doctype': 'Customer Group', 'customer_group_name': _('Individual'), 'is_group': 0, 'parent_customer_group': _('All Customer Groups')},
+		{'doctype': 'Customer Group', 'customer_group_name': _('Commercial'), 'is_group': 0, 'parent_customer_group': _('All Customer Groups')},
+		{'doctype': 'Customer Group', 'customer_group_name': _('Non Profit'), 'is_group': 0, 'parent_customer_group': _('All Customer Groups')},
+		{'doctype': 'Customer Group', 'customer_group_name': _('Government'), 'is_group': 0, 'parent_customer_group': _('All Customer Groups')},
+
+	# supplier group
+		{'doctype': 'Supplier Group', 'supplier_group_name': _('All Supplier Groups'), 'is_group': 1, 'name': _('All Supplier Groups'), 'parent_supplier_group': ''},
+		{'doctype': 'Supplier Group', 'supplier_group_name': _('Services'), 'is_group': 0, 'parent_supplier_group': _('All Supplier Groups')},
+		{'doctype': 'Supplier Group', 'supplier_group_name': _('Local'), 'is_group': 0, 'parent_supplier_group': _('All Supplier Groups')},
+		{'doctype': 'Supplier Group', 'supplier_group_name': _('Raw Material'), 'is_group': 0, 'parent_supplier_group': _('All Supplier Groups')},
+		{'doctype': 'Supplier Group', 'supplier_group_name': _('Electrical'), 'is_group': 0, 'parent_supplier_group': _('All Supplier Groups')},
+		{'doctype': 'Supplier Group', 'supplier_group_name': _('Hardware'), 'is_group': 0, 'parent_supplier_group': _('All Supplier Groups')},
+		{'doctype': 'Supplier Group', 'supplier_group_name': _('Distributor'), 'is_group': 0, 'parent_supplier_group': _('All Supplier Groups')},
 
 	# salary component
 		{'doctype': 'Salary Component', 'salary_component': _('Income Tax'), 'description': _('Income Tax'), 'type': 'Deduction'},
@@ -152,79 +225,6 @@ def install(country=None):
 		{'doctype': 'Stock Entry Type', 'name': 'Send to Warehouse', 'purpose': 'Send to Warehouse'},
 		{'doctype': 'Stock Entry Type', 'name': 'Receive at Warehouse', 'purpose': 'Receive at Warehouse'},
 
-	# Designation
-		{'doctype': 'Designation', 'designation_name': _('CEO')},
-		{'doctype': 'Designation', 'designation_name': _('Manager')},
-		{'doctype': 'Designation', 'designation_name': _('Engineer')},
-		{'doctype': 'Designation', 'designation_name': _('Accountant')},
-		{'doctype': 'Designation', 'designation_name': _('Secretary')},
-		{'doctype': 'Designation', 'designation_name': _('Associate')},
-		{'doctype': 'Designation', 'designation_name': _('Finance Manager')},
-		{'doctype': 'Designation', 'designation_name': _('HR Manager')},
-		{'doctype': 'Designation', 'designation_name': _('Project Manager')},
-		{'doctype': 'Designation', 'designation_name': _('Marketing and Sales Manager')},
-		{'doctype': 'Designation', 'designation_name': _('Operation Manager')},
-		{'doctype': 'Designation', 'designation_name': _('Warehouse Manager')},
-		{'doctype': 'Designation', 'designation_name': _('Administrative Staff')},
-		{'doctype': 'Designation', 'designation_name': _('Finance Staff')},
-		{'doctype': 'Designation', 'designation_name': _('HR Staff')},
-		{'doctype': 'Designation', 'designation_name': _('Marketing & Sales Staff')},
-
-	# territory: with two default territories, one for home country and one named Rest of the World
-		{'doctype': 'Territory', 'territory_name': _('All Territories'), 'is_group': 1, 'name': _('All Territories'), 'parent_territory': ''},
-		{'doctype': 'Territory', 'territory_name': "Indonesia", 'is_group': 1, 'parent_territory': _('All Territories')},
-		{'doctype': 'Territory', 'territory_name': _("Rest Of The World"), 'is_group': 0, 'parent_territory': _('All Territories')},
-		{'doctype': 'Territory', 'territory_name': 'Nanggroe Aceh Darussalam', 'is_group': 0, 'name': 'Nanggroe Aceh Darussalam', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Sumatera Utara', 'is_group': 0, 'name': 'Sumatera Utara', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Sumatera Barat', 'is_group': 0, 'name': 'Sumatera Barat', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Riau', 'is_group': 0, 'name': 'Riau', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Kepulauan Riau', 'is_group': 0, 'name': 'Kepulauan Riau', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Jambi', 'is_group': 0, 'name': 'Jambi', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Sumatera Selatan', 'is_group': 0, 'name': 'Sumatera Selatan', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Bangka Belitung', 'is_group': 0, 'name': 'Bangka Belitung', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Bengkulu', 'is_group': 0, 'name': 'Bengkulu', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Lampung', 'is_group': 0, 'name': 'Lampung', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'DKI Jakarta', 'is_group': 0, 'name': 'DKI Jakarta', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Jawa Barat', 'is_group': 0, 'name': 'Jawa Barat', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Banten', 'is_group': 0, 'name': 'Banten', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Jawa Tengah', 'is_group': 0, 'name': 'Jawa Tengah', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'DI Yogyakarta', 'is_group': 0, 'name': 'DI Yogyakarta', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Jawa Timur', 'is_group': 0, 'name': 'Jawa Timur', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Bali', 'is_group': 0, 'name': 'Bali', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Nusa Tenggara Barat', 'is_group': 0, 'name': 'Nusa Tenggara Barat', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Nusa Tenggara Timur', 'is_group': 0, 'name': 'Nusa Tenggara Timur', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Kalimantan Barat', 'is_group': 0, 'name': 'Kalimantan Barat', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Kalimantan Tengah', 'is_group': 0, 'name': 'Kalimantan Tengah', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Kalimantan Selatan', 'is_group': 0, 'name': 'Kalimantan Selatan', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Kalimantan Timur', 'is_group': 0, 'name': 'Kalimantan Timur', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Kalimantan Utara', 'is_group': 0, 'name': 'Kalimantan Utara', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Sulawesi Utara', 'is_group': 0, 'name': 'Sulawesi Utara', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Sulawesi Barat', 'is_group': 0, 'name': 'Sulawesi Barat', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Sulawesi Tengah', 'is_group': 0, 'name': 'Sulawesi Tengah', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Sulawesi Tenggara', 'is_group': 0, 'name': 'Sulawesi Tenggara', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Sulawesi Selatan', 'is_group': 0, 'name': 'Sulawesi Selatan', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Gorontalo', 'is_group': 0, 'name': 'Gorontalo', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Maluku', 'is_group': 0, 'name': 'Maluku', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Maluku Utara', 'is_group': 0, 'name': 'Maluku Utara', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Papua Barat', 'is_group': 0, 'name': 'Papua Barat', 'parent_territory': 'Indonesia'},
-		{'doctype': 'Territory', 'territory_name': 'Papua', 'is_group': 0, 'name': 'Papua', 'parent_territory': 'Indonesia'},
-
-	# customer group
-		{'doctype': 'Customer Group', 'customer_group_name': _('All Customer Groups'), 'is_group': 1, 	'name': _('All Customer Groups'), 'parent_customer_group': ''},
-		{'doctype': 'Customer Group', 'customer_group_name': _('Individual'), 'is_group': 0, 'parent_customer_group': _('All Customer Groups')},
-		{'doctype': 'Customer Group', 'customer_group_name': _('Commercial'), 'is_group': 0, 'parent_customer_group': _('All Customer Groups')},
-		{'doctype': 'Customer Group', 'customer_group_name': _('Non Profit'), 'is_group': 0, 'parent_customer_group': _('All Customer Groups')},
-		{'doctype': 'Customer Group', 'customer_group_name': _('Government'), 'is_group': 0, 'parent_customer_group': _('All Customer Groups')},
-
-	# supplier group
-		{'doctype': 'Supplier Group', 'supplier_group_name': _('All Supplier Groups'), 'is_group': 1, 'name': _('All Supplier Groups'), 'parent_supplier_group': ''},
-		{'doctype': 'Supplier Group', 'supplier_group_name': _('Services'), 'is_group': 0, 'parent_supplier_group': _('All Supplier Groups')},
-		{'doctype': 'Supplier Group', 'supplier_group_name': _('Local'), 'is_group': 0, 'parent_supplier_group': _('All Supplier Groups')},
-		{'doctype': 'Supplier Group', 'supplier_group_name': _('Raw Material'), 'is_group': 0, 'parent_supplier_group': _('All Supplier Groups')},
-		{'doctype': 'Supplier Group', 'supplier_group_name': _('Electrical'), 'is_group': 0, 'parent_supplier_group': _('All Supplier Groups')},
-		{'doctype': 'Supplier Group', 'supplier_group_name': _('Hardware'), 'is_group': 0, 'parent_supplier_group': _('All Supplier Groups')},
-		{'doctype': 'Supplier Group', 'supplier_group_name': _('Distributor'), 'is_group': 0, 'parent_supplier_group': _('All Supplier Groups')},
-
 	# Sales Person
 		{'doctype': 'Sales Person', 'sales_person_name': _('Sales Team'), 'is_group': 1, "parent_sales_person": ""},
 
@@ -280,11 +280,6 @@ def install(country=None):
 		{'doctype': 'Job Applicant Source', 'source_name': _('Employee Referral')},
 		{'doctype': 'Job Applicant Source', 'source_name': _('Campaign')},
 
-	# Email Account
-		{'doctype': "Email Account", "email_id": "sales@example.com", "append_to": "Opportunity"},
-		{'doctype': "Email Account", "email_id": "support@example.com", "append_to": "Issue"},
-		{'doctype': "Email Account", "email_id": "jobs@example.com", "append_to": "Job Applicant"},
-
 	# Party Type
 		{'doctype': "Party Type", "party_type": "Customer", "account_type": "Receivable"},
 		{'doctype': "Party Type", "party_type": "Supplier", "account_type": "Payable"},
@@ -317,10 +312,6 @@ def install(country=None):
 		{"doctype": "Offer Term", "offer_term": _("Notice Period")},
 		{"doctype": "Offer Term", "offer_term": _("Incentives")},
 
-	# Print Heading
-		{'doctype': "Print Heading", 'print_heading': _("Credit Note")},
-		{'doctype': "Print Heading", 'print_heading': _("Debit Note")},
-
 	# Assessment Group
 		{'doctype': 'Assessment Group', 'assessment_group_name': _('All Assessment Groups'),
 			'is_group': 1, 'parent_assessment_group': ''},
@@ -344,7 +335,17 @@ def install(country=None):
 		{"doctype": "Sales Stage", "stage_name": _("Identifying Decision Makers")},
 		{"doctype": "Sales Stage", "stage_name": _("Perception Analysis")},
 		{"doctype": "Sales Stage", "stage_name": _("Proposal/Price Quote")},
-		{"doctype": "Sales Stage", "stage_name": _("Negotiation/Review")}
+		{"doctype": "Sales Stage", "stage_name": _("Negotiation/Review")},
+
+	# Email Account
+		{'doctype': "Email Account", "email_id": "sales@example.com", "append_to": "Opportunity"},
+		{'doctype': "Email Account", "email_id": "support@example.com", "append_to": "Issue"},
+		{'doctype': "Email Account", "email_id": "jobs@example.com", "append_to": "Job Applicant"},
+
+	# Print Heading
+		{'doctype': "Print Heading", 'print_heading': _("Credit Note")},
+		{'doctype': "Print Heading", 'print_heading': _("Debit Note")},
+
 	]
 
 # industry type, lead source, sales partner type
@@ -389,62 +390,62 @@ def install(country=None):
 #setup_wizard #1a
 def set_more_defaults():
 # Do more setup stuff that can be done here with no dependencies
-# selling_settings
-	selling_settings = frappe.get_doc("Selling Settings")
-	selling_settings.set_default_customer_group_and_territory()
-	selling_settings.cust_master_name = "Customer Name"
-	selling_settings.so_required = "No"
-	selling_settings.dn_required = "No"
-	selling_settings.allow_multiple_items = 1
-	selling_settings.sales_update_frequency = "Each Transaction"
-	selling_settings.campaign_naming_by = "Campaign Name"
-	selling_settings.save()
 # add_uom_data
 	add_uom_data()
 # set no copy fields of an item doctype to item variant settings
 	doc = frappe.get_doc('Item Variant Settings')
 	doc.set_default_fields()
 	doc.save()
+# selling_settings
+	# selling_settings = frappe.get_doc("Selling Settings")
+	# selling_settings.set_default_customer_group_and_territory()
+	# selling_settings.cust_master_name = "Customer Name"
+	# selling_settings.so_required = "No"
+	# selling_settings.dn_required = "No"
+	# selling_settings.allow_multiple_items = 1
+	# selling_settings.sales_update_frequency = "Each Transaction"
+	# selling_settings.campaign_naming_by = "Campaign Name"
+	# selling_settings.save()
 # buying_settings
-	buying_settings = frappe.get_doc("Buying Settings")
-	buying_settings.supp_master_name = "Supplier Name"
-	buying_settings.po_required = "No"
-	buying_settings.pr_required = "No"
-	buying_settings.maintain_same_rate = 1
-	buying_settings.allow_multiple_items = 1
-	buying_settings.save()
+	# buying_settings = frappe.get_doc("Buying Settings")
+	# buying_settings.supp_master_name = "Supplier Name"
+	# buying_settings.po_required = "No"
+	# buying_settings.pr_required = "No"
+	# buying_settings.maintain_same_rate = 1
+	# buying_settings.allow_multiple_items = 1
+	# buying_settings.save()
 # hr_settings
-	hr_settings = frappe.get_doc("HR Settings")
-	hr_settings.emp_created_by = "Naming Series"
-	hr_settings.leave_approval_notification_template = _("Leave Approval Notification")
-	hr_settings.leave_status_notification_template = _("Leave Status Notification")
-	hr_settings.retirement_age = "60"
-	hr_settings.emp_created_by = _("Employee Number")
-	hr_settings.email_salary_slip_to_employee = 0
-	hr_settings.stop_birthday_reminders = 1
-	hr_settings.save()
+	# hr_settings = frappe.get_doc("HR Settings")
+	# hr_settings.emp_created_by = "Naming Series"
+	# hr_settings.leave_approval_notification_template = _("Leave Approval Notification")
+	# hr_settings.leave_status_notification_template = _("Leave Status Notification")
+	# hr_settings.retirement_age = "60"
+	# hr_settings.emp_created_by = _("Employee Number")
+	# hr_settings.email_salary_slip_to_employee = 0
+	# hr_settings.stop_birthday_reminders = 1
+	# hr_settings.save()
 # manufacturing_settings
-	manufacturing_settings = frappe.get_doc("Manufacturing Settings")
-	manufacturing_settings.allow_overtime = 1
-	manufacturing_settings.save()
+	# manufacturing_settings = frappe.get_doc("Manufacturing Settings")
+	# manufacturing_settings.allow_overtime = 1
+	# manufacturing_settings.save()
 # pos_settings
-	pos_settings = frappe.get_doc("POS Settings")
-	pos_settings.use_pos_in_offline_mode = 1
-	pos_settings.save()
+	# pos_settings = frappe.get_doc("POS Settings")
+	# pos_settings.use_pos_in_offline_mode = 1
+	# pos_settings.save()
 # website_settings
-	website_settings = frappe.get_doc("Website Settings")
-	website_settings.chat_welcome_message = "Hi, apa yang bisa kami bantu?"
-	website_settings.chat_room_name = "Bantuan"
-	website_settings.chat_enable_from = "07:00:00"
-	website_settings.chat_enable_to = "18:00:00"
-	website_settings.hide_footer_signup = 1
-	website_settings.disable_signup = 1
-	website_settings.save()
+	# website_settings = frappe.get_doc("Website Settings")
+	# website_settings.chat_welcome_message = "Hi, apa yang bisa kami bantu?"
+	# website_settings.chat_room_name = "Bantuan"
+	# website_settings.chat_enable_from = "07:00:00"
+	# website_settings.chat_enable_to = "18:00:00"
+	# website_settings.hide_footer_signup = 1
+	# website_settings.disable_signup = 1
+	# website_settings.save()
 # marketplace_settings
-	marketplace_settings = frappe.get_doc("Marketplace Settings")
-	marketplace_settings.marketplace_url = "https://puniamarket.com/"
-	marketplace_settings.disable_marketplace = 1
-	marketplace_settings.save()
+	# marketplace_settings = frappe.get_doc("Marketplace Settings")
+	# marketplace_settings.marketplace_url = "https://puniamarket.com/"
+	# marketplace_settings.disable_marketplace = 1
+	# marketplace_settings.save()
 
 #setup_wizard #1b
 def add_uom_data():
@@ -554,14 +555,12 @@ def install_post_company_fixtures(args=None):
 
 #setup_wizard #4
 def install_defaults(args=None):
-	records = [
 # Price Lists
+	records = [
 		{ "doctype": "Price List", "price_list_name": _("Standard Buying"), "enabled": 1, "buying": 1, "selling": 0, "currency": args.currency },
 		{ "doctype": "Price List", "price_list_name": _("Standard Selling"), "enabled": 1, "buying": 0, "selling": 1, "currency": args.currency },
 	]
-
 	make_records(records)
-
 #enable default currency
 	frappe.db.set_value("Currency", args.get("currency"), "enabled", 1)
 #global defaults
@@ -605,18 +604,65 @@ def install_defaults(args=None):
 	stock_settings.show_barcode_field = 1
 	stock_settings.save()
 #selling settings
-	selling_settings = frappe.get_doc("Selling Settings")
-	selling_settings.territory = "Indonesia"
-	selling_settings.save()
+	# selling_settings = frappe.get_doc("Selling Settings")
+	# selling_settings.territory = "Indonesia"
+	# selling_settings.save()
 #buying settings
+	# buying_settings = frappe.get_doc("Buying Settings")
+	# buying_settings.supplier_group = "Distributor"
+	# buying_settings.save()
+# selling_settings
+	selling_settings = frappe.get_doc("Selling Settings")
+	selling_settings.set_default_customer_group_and_territory()
+	selling_settings.territory = "Indonesia"
+	selling_settings.cust_master_name = "Customer Name"
+	selling_settings.so_required = "No"
+	selling_settings.dn_required = "No"
+	selling_settings.allow_multiple_items = 1
+	selling_settings.sales_update_frequency = "Each Transaction"
+	selling_settings.campaign_naming_by = "Campaign Name"
+	selling_settings.save()
+# buying_settings
 	buying_settings = frappe.get_doc("Buying Settings")
+	buying_settings.supp_master_name = "Supplier Name"
 	buying_settings.supplier_group = "Distributor"
+	buying_settings.po_required = "No"
+	buying_settings.pr_required = "No"
+	buying_settings.maintain_same_rate = 1
+	buying_settings.allow_multiple_items = 1
 	buying_settings.save()
-# homepage_description
-	# homepage_description = frappe.get_doc("Homepage")
-	# homepage_description.tag_line = _("UMKM Indonesia")
-	# homepage_description.description = _("This is automatically created example website")
-	# homepage_description.save()
+# hr_settings
+	hr_settings = frappe.get_doc("HR Settings")
+	hr_settings.emp_created_by = "Naming Series"
+	hr_settings.leave_approval_notification_template = _("Leave Approval Notification")
+	hr_settings.leave_status_notification_template = _("Leave Status Notification")
+	hr_settings.retirement_age = "60"
+	hr_settings.emp_created_by = _("Employee Number")
+	hr_settings.email_salary_slip_to_employee = 0
+	hr_settings.stop_birthday_reminders = 1
+	hr_settings.save()
+# manufacturing_settings
+	manufacturing_settings = frappe.get_doc("Manufacturing Settings")
+	manufacturing_settings.allow_overtime = 1
+	manufacturing_settings.save()
+# pos_settings
+	pos_settings = frappe.get_doc("POS Settings")
+	pos_settings.use_pos_in_offline_mode = 1
+	pos_settings.save()
+# website_settings
+	website_settings = frappe.get_doc("Website Settings")
+	website_settings.chat_welcome_message = "Hi, apa yang bisa kami bantu?"
+	website_settings.chat_room_name = "Bantuan"
+	website_settings.chat_enable_from = "07:00:00"
+	website_settings.chat_enable_to = "18:00:00"
+	website_settings.hide_footer_signup = 1
+	website_settings.disable_signup = 1
+	website_settings.save()
+# marketplace_settings
+	marketplace_settings = frappe.get_doc("Marketplace Settings")
+	marketplace_settings.marketplace_url = "https://puniamarket.com/"
+	marketplace_settings.disable_marketplace = 1
+	marketplace_settings.save()
 # shopping_cart_settings
 	# shopping_cart_settings = frappe.get_doc("Shopping Cart Settings")
 	# shopping_cart_settings.enabled = 1
@@ -626,6 +672,11 @@ def install_defaults(args=None):
 	# shopping_cart_settings.quotation_series = "SAL-QTN-.YYYY.-"
 	# shopping_cart_settings.enable_checkout = 1
 	# shopping_cart_settings.save()
+# homepage_description
+	homepage_description = frappe.get_doc("Homepage")
+	homepage_description.tag_line = _("UMKM Indonesia")
+	homepage_description.description = _("This is automatically created example website")
+	homepage_description.save()
 #bank account
 	if args.bank_account:
 		company_name = args.company_name
@@ -655,17 +706,19 @@ def install_defaults(args=None):
 	add_dashboards()
 
 # Now, with fixtures out of the way, onto concrete stuff
-	records = [
-
 # Shopping cart: needs price lists
+	records = [
 		{
 			"doctype": "Shopping Cart Settings",
 			"enabled": 1,
 			'company': args.company_name,
-			# uh oh
 			'price_list': frappe.db.get_value("Price List", {"selling": 1}),
 			'default_customer_group': _("Individual"),
-			'quotation_series': "QTN-",
+			'quotation_series': "QTN-OL-.YYYY.MM.",
+			'show_stock_availability': 1,
+			'show_quantity_in_website': 1,
+			'show_price': 1,
+			'show_contact_us_button': 1
 		},
 	]
 
