@@ -555,7 +555,7 @@ def install_defaults(args=None):
 	homepage_description = frappe.get_doc("Homepage")
 	# homepage_description.tag_line = _("UMKM Indonesia")
 	homepage_description.tag_line = args.company_name
-	homepage_description.description = _("Adalah anggota Punia untuk kemajuan UKM Indonesia")
+	homepage_description.description = _("Bersama Punia untuk kemajuan UKM Indonesia")
 	homepage_description.save()
 # bank account
 	if args.bank_account:
