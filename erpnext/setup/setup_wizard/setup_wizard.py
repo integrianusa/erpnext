@@ -37,6 +37,17 @@ def get_setup_stages(args=None):
 				]
 			},
 			{
+				'status': _('Setting up territory'),
+				'fail_msg': _('Failed to setup territory'),
+				'tasks': [
+					{
+						'fn': setup_territory,
+						'args': args,
+						'fail_msg': _("Failed to setup territory")
+					},
+				]
+			},
+			{
 				'status': _('Setting up company'),
 				'fail_msg': _('Failed to setup company'),
 				'tasks': [
@@ -98,6 +109,9 @@ def get_setup_stages(args=None):
 
 def stage_fixtures(args):
 	fixtures.install(args.get('country'))
+
+def setup_territory(args):
+	fixtures.install_territory(args.get('country'))
 
 def setup_company(args):
 	fixtures.install_company(args)
