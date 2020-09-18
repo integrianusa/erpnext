@@ -45,6 +45,12 @@ def get_setup_stages(args=None):
 						'args': args,
 						'fail_msg': _("Failed to setup company")
 					},
+				]
+			},
+			{
+				'status': _('Setting up website'),
+				'fail_msg': _('Failed to setup website'),
+				'tasks': [
 					{
 						'fn': setup_website,
 						'args': args,
