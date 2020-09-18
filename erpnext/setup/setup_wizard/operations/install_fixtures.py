@@ -19,7 +19,7 @@ default_sales_partner_type = ["Channel Partner", "Distributor", "Dealer", "Agent
 	"Retailer", "Implementation Partner", "Reseller"]
 
 #setup_wizard #1
-def install(country=None):
+def install_domains(country=None):
 	records = [
 	# domains
 		{ 'doctype': 'Domain', 'domain': 'Distribution'},
@@ -30,6 +30,9 @@ def install(country=None):
 		{ 'doctype': 'Domain', 'domain': 'Healthcare'},
 		{ 'doctype': 'Domain', 'domain': 'Agriculture'},
 		{ 'doctype': 'Domain', 'domain': 'Non Profit'},
+	]
+def install(country=None):
+	records = [
 	# address template
 		{'doctype':"Address Template", "country": country},
 	# Mode of Payment
@@ -40,12 +43,6 @@ def install(country=None):
 		{'doctype': 'Mode of Payment', 'mode_of_payment': _('Wire Transfer'), 'type': 'Bank'},
 		{'doctype': 'Mode of Payment', 'mode_of_payment': _('Bank Draft'), 'type': 'Bank'},
 		{'doctype': 'Mode of Payment', 'mode_of_payment': _('Cashless'), 'type': 'Bank'},
-	# Activity Type
-		{'doctype': 'Activity Type', 'activity_type': _('Planning')},
-		{'doctype': 'Activity Type', 'activity_type': _('Research')},
-		{'doctype': 'Activity Type', 'activity_type': _('Proposal Writing')},
-		{'doctype': 'Activity Type', 'activity_type': _('Execution')},
-		{'doctype': 'Activity Type', 'activity_type': _('Communication')},
 	# Issue Priority
 		{'doctype': 'Issue Priority', 'name': _('Low')},
 		{'doctype': 'Issue Priority', 'name': _('Medium')},
@@ -126,15 +123,6 @@ def install(country=None):
 			'allow_encashment': 0, 'earned_leave_frequency': 'Monthly', 'include_holiday': 0,
 			'is_carry_forward': 0, 'is_compensatory': 1, 'is_earned_leave': 0, 'is_lwp': 0,
 			'is_optional_leave': 0, 'max_continuous_days_allowed': 7, 'max_leaves_allowed': 1},
-	# Employment Type
-		{'doctype': 'Employment Type', 'employee_type_name': _('Full-time')},
-		{'doctype': 'Employment Type', 'employee_type_name': _('Part-time')},
-		{'doctype': 'Employment Type', 'employee_type_name': _('Probation')},
-		{'doctype': 'Employment Type', 'employee_type_name': _('Contract')},
-		{'doctype': 'Employment Type', 'employee_type_name': _('Commission')},
-		{'doctype': 'Employment Type', 'employee_type_name': _('Piecework')},
-		{'doctype': 'Employment Type', 'employee_type_name': _('Intern')},
-		{'doctype': 'Employment Type', 'employee_type_name': _('Apprentice')},
 	# Employee Health Insurance
 		{'doctype': 'Employee Health Insurance', 'health_insurance_name': _('Asuransi non-BPJS')},
 		{'doctype': 'Employee Health Insurance', 'health_insurance_name': _('BPJS Pensiun')},
@@ -166,17 +154,6 @@ def install(country=None):
 		{'doctype': 'Supplier Group', 'supplier_group_name': _('Electrical'), 'is_group': 0, 'parent_supplier_group': _('All Supplier Groups')},
 		{'doctype': 'Supplier Group', 'supplier_group_name': _('Hardware'), 'is_group': 0, 'parent_supplier_group': _('All Supplier Groups')},
 		{'doctype': 'Supplier Group', 'supplier_group_name': _('Distributor'), 'is_group': 0, 'parent_supplier_group': _('All Supplier Groups')},
-	# Stock Entry Type
-		{'doctype': 'Stock Entry Type', 'name': 'Material Issue', 'purpose': 'Material Issue'},
-		{'doctype': 'Stock Entry Type', 'name': 'Material Receipt', 'purpose': 'Material Receipt'},
-		{'doctype': 'Stock Entry Type', 'name': 'Material Transfer', 'purpose': 'Material Transfer'},
-		{'doctype': 'Stock Entry Type', 'name': 'Manufacture', 'purpose': 'Manufacture'},
-		{'doctype': 'Stock Entry Type', 'name': 'Repack', 'purpose': 'Repack'},
-		{'doctype': 'Stock Entry Type', 'name': 'Send to Subcontractor', 'purpose': 'Send to Subcontractor'},
-		{'doctype': 'Stock Entry Type', 'name': 'Material Transfer for Manufacture', 'purpose': 'Material Transfer for Manufacture'},
-		{'doctype': 'Stock Entry Type', 'name': 'Material Consumption for Manufacture', 'purpose': 'Material Consumption for Manufacture'},
-		{'doctype': 'Stock Entry Type', 'name': 'Send to Warehouse', 'purpose': 'Send to Warehouse'},
-		{'doctype': 'Stock Entry Type', 'name': 'Receive at Warehouse', 'purpose': 'Receive at Warehouse'},
 	# Item Attribute
 		{'doctype': "Item Attribute", "attribute_name": _("Size"), "item_attribute_values": [
 			{"attribute_value": _("Extra Small"), "abbr": "XS"},
@@ -190,13 +167,29 @@ def install(country=None):
 			{"attribute_value": _("Blue"), "abbr": "BLU"},
 			{"attribute_value": _("Black"), "abbr": "BLA"},
 			{"attribute_value": _("White"), "abbr": "WHI"} ]},
-	# Party Type
+	# Stock Entry Type
+		{'doctype': 'Stock Entry Type', 'name': 'Material Issue', 'purpose': 'Material Issue'},
+		{'doctype': 'Stock Entry Type', 'name': 'Material Receipt', 'purpose': 'Material Receipt'},
+		{'doctype': 'Stock Entry Type', 'name': 'Material Transfer', 'purpose': 'Material Transfer'},
+		{'doctype': 'Stock Entry Type', 'name': 'Manufacture', 'purpose': 'Manufacture'},
+		{'doctype': 'Stock Entry Type', 'name': 'Repack', 'purpose': 'Repack'},
+		{'doctype': 'Stock Entry Type', 'name': 'Send to Subcontractor', 'purpose': 'Send to Subcontractor'},
+		{'doctype': 'Stock Entry Type', 'name': 'Material Transfer for Manufacture', 'purpose': 'Material Transfer for Manufacture'},
+		{'doctype': 'Stock Entry Type', 'name': 'Material Consumption for Manufacture', 'purpose': 'Material Consumption for Manufacture'},
+		{'doctype': 'Stock Entry Type', 'name': 'Send to Warehouse', 'purpose': 'Send to Warehouse'},
+		{'doctype': 'Stock Entry Type', 'name': 'Receive at Warehouse', 'purpose': 'Receive at Warehouse'},	# Party Type
 		{'doctype': "Party Type", "party_type": "Customer", "account_type": "Receivable"},
 		{'doctype': "Party Type", "party_type": "Supplier", "account_type": "Payable"},
 		{'doctype': "Party Type", "party_type": "Employee", "account_type": "Payable"},
 		{'doctype': "Party Type", "party_type": "Member", "account_type": "Receivable"},
 		{'doctype': "Party Type", "party_type": "Shareholder", "account_type": "Payable"},
 		{'doctype': "Party Type", "party_type": "Student", "account_type": "Receivable"},
+	# Activity Type
+		{'doctype': 'Activity Type', 'activity_type': _('Planning')},
+		{'doctype': 'Activity Type', 'activity_type': _('Research')},
+		{'doctype': 'Activity Type', 'activity_type': _('Proposal Writing')},
+		{'doctype': 'Activity Type', 'activity_type': _('Execution')},
+		{'doctype': 'Activity Type', 'activity_type': _('Communication')},
 	# Opportunity Type
 		{'doctype': "Opportunity Type", "name": _("Sales")},
 		{'doctype': "Opportunity Type", "name": _("Support")},
@@ -205,19 +198,6 @@ def install(country=None):
 		{'doctype': "Project Type", "project_type": _("Internal")},
 		{'doctype': "Project Type", "project_type": _("External")},
 		{'doctype': "Project Type", "project_type": _("Other")},
-	# Offer Term
-		{"doctype": "Offer Term", "offer_term": _("Date of Joining")},
-		{"doctype": "Offer Term", "offer_term": _("Annual Salary")},
-		{"doctype": "Offer Term", "offer_term": _("Probationary Period")},
-		{"doctype": "Offer Term", "offer_term": _("Employee Benefits")},
-		{"doctype": "Offer Term", "offer_term": _("Working Hours")},
-		{"doctype": "Offer Term", "offer_term": _("Stock Options")},
-		{"doctype": "Offer Term", "offer_term": _("Department")},
-		{"doctype": "Offer Term", "offer_term": _("Job Description")},
-		{"doctype": "Offer Term", "offer_term": _("Responsibilities")},
-		{"doctype": "Offer Term", "offer_term": _("Leaves per Year")},
-		{"doctype": "Offer Term", "offer_term": _("Notice Period")},
-		{"doctype": "Offer Term", "offer_term": _("Incentives")},
 	# Assessment Group
 		{'doctype': 'Assessment Group', 'assessment_group_name': _('All Assessment Groups'), 'is_group': 1, 'parent_assessment_group': ''},
 	# Market Segments
@@ -236,7 +216,6 @@ def install(country=None):
 		{"doctype": "Sales Stage", "stage_name": _("Proposal/Price Quote")},
 		{"doctype": "Sales Stage", "stage_name": _("Negotiation/Review")},
 	]
-
 # industry type, lead source, sales partner type
 	from erpnext.setup.setup_wizard.data.industry_type import get_industry_types
 	records += [{"doctype":"Industry Type", "industry": d} for d in get_industry_types()]
@@ -388,6 +367,28 @@ def install_post_company_fixtures(args=None):
 		{'doctype': 'Department', 'department_name': _('Quality Management'), 'parent_department': _('All Departments'), 'company': args.company_name},
 		{'doctype': 'Department', 'department_name': _('Research & Development'), 'parent_department': _('All Departments'), 'company': args.company_name},
 		{'doctype': 'Department', 'department_name': _('Legal'), 'parent_department': _('All Departments'), 'company': args.company_name},
+	# Employment Type
+		{'doctype': 'Employment Type', 'employee_type_name': _('Full-time')},
+		{'doctype': 'Employment Type', 'employee_type_name': _('Part-time')},
+		{'doctype': 'Employment Type', 'employee_type_name': _('Probation')},
+		{'doctype': 'Employment Type', 'employee_type_name': _('Contract')},
+		{'doctype': 'Employment Type', 'employee_type_name': _('Commission')},
+		{'doctype': 'Employment Type', 'employee_type_name': _('Piecework')},
+		{'doctype': 'Employment Type', 'employee_type_name': _('Intern')},
+		{'doctype': 'Employment Type', 'employee_type_name': _('Apprentice')},
+	# Offer Term
+		{"doctype": "Offer Term", "offer_term": _("Date of Joining")},
+		{"doctype": "Offer Term", "offer_term": _("Annual Salary")},
+		{"doctype": "Offer Term", "offer_term": _("Probationary Period")},
+		{"doctype": "Offer Term", "offer_term": _("Employee Benefits")},
+		{"doctype": "Offer Term", "offer_term": _("Working Hours")},
+		{"doctype": "Offer Term", "offer_term": _("Stock Options")},
+		{"doctype": "Offer Term", "offer_term": _("Department")},
+		{"doctype": "Offer Term", "offer_term": _("Job Description")},
+		{"doctype": "Offer Term", "offer_term": _("Responsibilities")},
+		{"doctype": "Offer Term", "offer_term": _("Leaves per Year")},
+		{"doctype": "Offer Term", "offer_term": _("Notice Period")},
+		{"doctype": "Offer Term", "offer_term": _("Incentives")},
 	# Sales Person
 		{'doctype': 'Sales Person', 'sales_person_name': _('Sales Team'), 'is_group': 1, "parent_sales_person": ""},
 	# Email Account
@@ -402,12 +403,6 @@ def install_post_company_fixtures(args=None):
 
 #setup_wizard #4
 def install_defaults(args=None):
-# Price Lists
-	records = [
-		{ "doctype": "Price List", "price_list_name": _("Standard Buying"), "enabled": 1, "buying": 1, "selling": 0, "currency": args.currency },
-		{ "doctype": "Price List", "price_list_name": _("Standard Selling"), "enabled": 1, "buying": 0, "selling": 1, "currency": args.currency },
-	]
-	make_records(records)
 # enable default currency
 	frappe.db.set_value("Currency", args.get("currency"), "enabled", 1)
 # system settings
@@ -438,6 +433,8 @@ def install_defaults(args=None):
 # domain settings
 	domain_settings = frappe.get_single('Domain Settings')
 	domain_settings.set_active_domains(args.get('domains'))
+
+def install_commerce(args=None):
 # stock settings
 	stock_settings = frappe.get_doc("Stock Settings")
 	stock_settings.item_naming_by = "Item Code"
@@ -534,8 +531,12 @@ def install_defaults(args=None):
 			except frappe.DuplicateEntryError:
 				# bank account same as a CoA entry
 				pass
-# add dashboard
-	add_dashboards()
+# Price Lists
+	records = [
+		{ "doctype": "Price List", "price_list_name": _("Standard Buying"), "enabled": 1, "buying": 1, "selling": 0, "currency": args.currency },
+		{ "doctype": "Price List", "price_list_name": _("Standard Selling"), "enabled": 1, "buying": 0, "selling": 1, "currency": args.currency },
+	]
+	make_records(records)
 # Shopping cart: needs price lists
 	records = [
 		{
@@ -553,6 +554,8 @@ def install_defaults(args=None):
 	]
 
 	make_records(records)
+# add dashboard
+	add_dashboards()
 
 def add_uom_data():
 # add UOMs

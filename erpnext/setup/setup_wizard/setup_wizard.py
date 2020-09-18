@@ -26,6 +26,17 @@ def get_setup_stages(args=None):
 	else:
 		stages = [
 			{
+				'status': _('Installing domains'),
+				'fail_msg': _('Failed to install domains'),
+				'tasks': [
+					{
+						'fn': setup_domains,
+						'args': args,
+						'fail_msg': _("Failed to install domains")
+					}
+				]
+			},
+			{
 				'status': _('Installing presets'),
 				'fail_msg': _('Failed to install presets'),
 				'tasks': [
@@ -70,13 +81,24 @@ def get_setup_stages(args=None):
 				]
 			},
 			{
-				'status': _('Setting defaults'),
+				'status': _('Setting up defaults'),
 				'fail_msg': 'Failed to set defaults',
 				'tasks': [
 					{
 						'fn': setup_defaults,
 						'args': args,
 						'fail_msg': _("Failed to setup defaults")
+					}
+				]
+			},
+			{
+				'status': _('Setting up commerce defaults'),
+				'fail_msg': 'Failed to set commerce defaults',
+				'tasks': [
+					{
+						'fn': setup_commerce,
+						'args': args,
+						'fail_msg': _("Failed to setup commerce defaults")
 					}
 				]
 			},
@@ -107,6 +129,9 @@ def get_setup_stages(args=None):
 
 	return stages
 
+def setup_domains(args):
+	fixtures.install_domains(args.get('country'))
+
 def stage_fixtures(args):
 	fixtures.install(args.get('country'))
 
@@ -124,6 +149,9 @@ def setup_website(args):
 
 def setup_defaults(args):
 	fixtures.install_defaults(frappe._dict(args))
+
+def setup_commerce(args):
+	fixtures.install_commerce(frappe._dict(args))
 
 def set_active_domains(args):
 	domain_settings = frappe.get_single('Domain Settings')
