@@ -26,6 +26,17 @@ def get_setup_stages(args=None):
 	else:
 		stages = [
 			{
+				'status': _('Installing domains'),
+				'fail_msg': _('Failed to install domains'),
+				'tasks': [
+					{
+						'fn': setup_domains,
+						'args': args,
+						'fail_msg': _("Failed to install domains")
+					}
+				]
+			},
+			{
 				'status': _('Installing presets'),
 				'fail_msg': _('Failed to install presets'),
 				'tasks': [
@@ -37,6 +48,28 @@ def get_setup_stages(args=None):
 				]
 			},
 			{
+				'status': _('Installing groups and types'),
+				'fail_msg': _('Failed to install groups and types'),
+				'tasks': [
+					{
+						'fn': setup_groups_and_types,
+						'args': args,
+						'fail_msg': _("Failed to install groups and types")
+					}
+				]
+			},
+			{
+				'status': _('Setting up territory'),
+				'fail_msg': _('Failed to setup territory'),
+				'tasks': [
+					{
+						'fn': setup_territory,
+						'args': args,
+						'fail_msg': _("Failed to setup territory")
+					}
+				]
+			},
+			{
 				'status': _('Setting up company'),
 				'fail_msg': _('Failed to setup company'),
 				'tasks': [
@@ -44,7 +77,13 @@ def get_setup_stages(args=None):
 						'fn': setup_company,
 						'args': args,
 						'fail_msg': _("Failed to setup company")
-					},
+					}
+				]
+			},
+			{
+				'status': _('Setting up website'),
+				'fail_msg': _('Failed to setup website'),
+				'tasks': [
 					{
 						'fn': setup_website,
 						'args': args,
@@ -52,14 +91,124 @@ def get_setup_stages(args=None):
 					}
 				]
 			},
+			# {
+			# 	'status': _('Setting up defaults'),
+			# 	'fail_msg': 'Failed to set defaults',
+			# 	'tasks': [
+			# 		{
+			# 			'fn': setup_defaults,
+			# 			'args': args,
+			# 			'fail_msg': _("Failed to setup defaults")
+			# 		}
+			# 	]
+			# },
 			{
-				'status': _('Setting defaults'),
-				'fail_msg': 'Failed to set defaults',
+				'status': _('Setting up system settings'),
+				'fail_msg': 'Failed to set system settings',
 				'tasks': [
 					{
-						'fn': setup_defaults,
+						'fn': setup_system_settings,
 						'args': args,
-						'fail_msg': _("Failed to setup defaults")
+						'fail_msg': _("Failed to setup system settings")
+					}
+				]
+			},
+			{
+				'status': _('Setting up global defaults'),
+				'fail_msg': 'Failed to set global defaults',
+				'tasks': [
+					{
+						'fn': setup_global_defaults,
+						'args': args,
+						'fail_msg': _("Failed to setup global defaults")
+					}
+				]
+			},
+			{
+				'status': _('Setting up domain settings'),
+				'fail_msg': 'Failed to set domain settings',
+				'tasks': [
+					{
+						'fn': setup_domain_settings,
+						'args': args,
+						'fail_msg': _("Failed to setup domain settings")
+					}
+				]
+			},
+			{
+				'status': _('Setting up stock'),
+				'fail_msg': 'Failed to set stock',
+				'tasks': [
+					{
+						'fn': setup_stock,
+						'args': args,
+						'fail_msg': _("Failed to setup stock")
+					}
+				]
+			},
+			{
+				'status': _('Setting up selling'),
+				'fail_msg': 'Failed to set selling',
+				'tasks': [
+					{
+						'fn': setup_selling,
+						'args': args,
+						'fail_msg': _("Failed to setup selling")
+					}
+				]
+			},
+			{
+				'status': _('Setting up buying'),
+				'fail_msg': 'Failed to set buying',
+				'tasks': [
+					{
+						'fn': setup_buying,
+						'args': args,
+						'fail_msg': _("Failed to setup buying")
+					}
+				]
+			},
+			{
+				'status': _('Setting up hr'),
+				'fail_msg': 'Failed to set hr',
+				'tasks': [
+					{
+						'fn': setup_hr,
+						'args': args,
+						'fail_msg': _("Failed to setup hr")
+					}
+				]
+			},
+			{
+				'status': _('Setting up manufacturing'),
+				'fail_msg': 'Failed to set manufacturing',
+				'tasks': [
+					{
+						'fn': setup_manufacturing,
+						'args': args,
+						'fail_msg': _("Failed to setup manufacturing")
+					}
+				]
+			},
+			{
+				'status': _('Setting up pos'),
+				'fail_msg': 'Failed to set pos',
+				'tasks': [
+					{
+						'fn': setup_pos,
+						'args': args,
+						'fail_msg': _("Failed to setup pos")
+					}
+				]
+			},
+			{
+				'status': _('Setting up other features'),
+				'fail_msg': 'Failed to set commerce',
+				'tasks': [
+					{
+						'fn': setup_other_features,
+						'args': args,
+						'fail_msg': _("Failed to setup other features")
 					}
 				]
 			},
@@ -90,8 +239,17 @@ def get_setup_stages(args=None):
 
 	return stages
 
+def setup_domains(args):
+	fixtures.install_domains(args.get('country'))
+
 def stage_fixtures(args):
 	fixtures.install(args.get('country'))
+
+def setup_groups_and_types(args):
+	fixtures.install_group_and_types(args)
+
+def setup_territory(args):
+	fixtures.install_territory(args.get('country'))
 
 def setup_company(args):
 	fixtures.install_company(args)
@@ -101,9 +259,40 @@ def setup_website(args):
 	company_setup.create_website(args)
 	company_setup.create_email_digest()
 	company_setup.create_logo(args)
+	fixtures.setup_website(args)
 
-def setup_defaults(args):
-	fixtures.install_defaults(frappe._dict(args))
+# def setup_defaults(args):
+# 	fixtures.install_defaults(frappe._dict(args))
+
+def setup_system_settings(args):
+	fixtures.install_system_settings(frappe._dict(args))
+
+def setup_global_defaults(args):
+	fixtures.install_global_defaults(frappe._dict(args))
+
+def setup_domain_settings(args):
+	fixtures.install_domain_settings(frappe._dict(args))
+
+def setup_stock(args):
+	fixtures.install_stock(frappe._dict(args))
+
+def setup_selling(args):
+	fixtures.install_selling(frappe._dict(args))
+
+def setup_buying(args):
+	fixtures.install_buying(frappe._dict(args))
+
+def setup_hr(args):
+	fixtures.install_hr(frappe._dict(args))
+
+def setup_manufacturing(args):
+	fixtures.install_manufacturing(frappe._dict(args))
+
+def setup_pos(args):
+	fixtures.install_pos(frappe._dict(args))
+
+def setup_other_features(args):
+	fixtures.install_other_features(frappe._dict(args))
 
 def set_active_domains(args):
 	domain_settings = frappe.get_single('Domain Settings')
