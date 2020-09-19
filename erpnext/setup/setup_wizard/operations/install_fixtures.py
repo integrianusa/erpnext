@@ -31,6 +31,7 @@ def install_domains(country=None):
 		{ 'doctype': 'Domain', 'domain': 'Agriculture'},
 		{ 'doctype': 'Domain', 'domain': 'Non Profit'},
 	]
+
 def install(country=None):
 	records = [
 	# address template
@@ -66,63 +67,6 @@ def install(country=None):
 		{'doctype': 'Expense Claim Type', 'name': _('Travel'), 'expense_type': _('Travel')},
 		{'doctype': 'Expense Claim Type', 'name': _('Accomodations'), 'expense_type': _('Accomodations')},
 		{'doctype': 'Expense Claim Type', 'name': _('Others'), 'expense_type': _('Others')},
-	# leave type
-		{'doctype': 'Leave Type', 'leave_type_name': _('Cuti Orang Serumah Meninggal'), 'name': _('Cuti Orang Serumah Meninggal'),
-			'allow_encashment': 0, 'earned_leave_frequency': 'Monthly', 'include_holiday': 0,
-			'is_carry_forward': 0, 'is_compensatory': 0, 'is_earned_leave': 0, 'is_lwp': 0,
-			'is_optional_leave': 0, 'max_continuous_days_allowed': 1, 'max_leaves_allowed': 1},
-		{'doctype': 'Leave Type', 'leave_type_name': _('Cuti Keluarga Dekat Meninggal'), 'name': _('Cuti Keluarga Dekat Meninggal'),
-			'allow_encashment': 0, 'earned_leave_frequency': 'Monthly', 'include_holiday': 0,
-			'is_carry_forward': 0, 'is_compensatory': 0, 'is_earned_leave': 0, 'is_lwp': 0,
-			'is_optional_leave': 0, 'max_continuous_days_allowed': 2, 'max_leaves_allowed': 2},
-		{'doctype': 'Leave Type', 'leave_type_name': _('Cuti Melahirkan/Keguguran'), 'name': _('Cuti Melahirkan/Keguguran'),
-			'allow_encashment': 0, 'earned_leave_frequency': 'Monthly', 'include_holiday': 1,
-			'is_carry_forward': 0, 'is_compensatory': 0, 'is_earned_leave': 0, 'is_lwp': 0,
-			'is_optional_leave': 0, 'max_continuous_days_allowed': 90, 'max_leaves_allowed': 1},
-		{'doctype': 'Leave Type', 'leave_type_name': _('Cuti Membaptiskan Anak'), 'name': _('Cuti Membaptiskan Anak'),
-			'allow_encashment': 0, 'earned_leave_frequency': 'Monthly', 'include_holiday': 0,
-			'is_carry_forward': 0, 'is_compensatory': 0, 'is_earned_leave': 0, 'is_lwp': 0,
-			'is_optional_leave': 0, 'max_continuous_days_allowed': 2, 'max_leaves_allowed': 1},
-		{'doctype': 'Leave Type', 'leave_type_name': _('Cuti Mengkhitankan Anak'), 'name': _('Cuti Mengkhitankan Anak'),
-			'allow_encashment': 0, 'earned_leave_frequency': 'Monthly', 'include_holiday': 0,
-			'is_carry_forward': 0, 'is_compensatory': 0, 'is_earned_leave': 0, 'is_lwp': 0,
-			'is_optional_leave': 0, 'max_continuous_days_allowed': 2, 'max_leaves_allowed': 2},
-		{'doctype': 'Leave Type', 'leave_type_name': _('Cuti Menikahkan Anak'), 'name': _('Cuti Menikahkan Anak'),
-			'allow_encashment': 0, 'earned_leave_frequency': 'Monthly', 'include_holiday': 0,
-			'is_carry_forward': 0, 'is_compensatory': 0, 'is_earned_leave': 0, 'is_lwp': 0,
-			'is_optional_leave': 0, 'max_continuous_days_allowed': 0, 'max_leaves_allowed': 2},
-		{'doctype': 'Leave Type', 'leave_type_name': _('Cuti Kompensasi Hari Libur'), 'name': _('Cuti Kompensasi Hari Libur'),
-			'allow_encashment': 0, 'earned_leave_frequency': 'Monthly', 'include_holiday': 0,
-			'is_carry_forward': 0, 'is_compensatory': 1, 'is_earned_leave': 0, 'is_lwp': 0,
-			'is_optional_leave': 0, 'max_continuous_days_allowed': 0, 'max_leaves_allowed': 0},
-		{'doctype': 'Leave Type', 'leave_type_name': _('Cuti Besar'), 'name': _('Cuti Besar'), 'applicable_after': 1728,
-			'allow_encashment': 0, 'earned_leave_frequency': 'Monthly', 'include_holiday': 1,
-			'is_carry_forward': 0, 'is_compensatory': 0, 'is_earned_leave': 0, 'is_lwp': 0,
-			'is_optional_leave': 0, 'max_continuous_days_allowed': 30, 'max_leaves_allowed': 0},
-		{'doctype': 'Leave Type', 'leave_type_name': _('Cuti Tahunan'), 'name': _('Cuti Tahunan'), 'applicable_after': 288,
-			'allow_encashment': 0, 'earned_leave_frequency': 'Yearly', 'include_holiday': 0,
-			'is_carry_forward': 0, 'is_compensatory': 0, 'is_earned_leave': 1, 'is_lwp': 0,
-			'is_optional_leave': 0, 'max_continuous_days_allowed': 12, 'max_leaves_allowed': 12},
-		{'doctype': 'Leave Type', 'leave_type_name': _('Cuti Tanpa Upah'), 'name': _('Cuti Tanpa Upah'),
-			'allow_encashment': 0, 'earned_leave_frequency': 'Monthly', 'include_holiday': 1,
-			'is_carry_forward': 0, 'is_compensatory': 0, 'is_earned_leave': 0, 'is_lwp': 1,
-			'is_optional_leave': 0, 'max_continuous_days_allowed': 12, 'max_leaves_allowed': 0},
-		{'doctype': 'Leave Type', 'leave_type_name': _('Cuti Sakit'), 'name': _('Cuti Sakit'),
-			'allow_encashment': 0, 'earned_leave_frequency': 'Monthly', 'include_holiday': 1,
-			'is_carry_forward': 0, 'is_compensatory': 0, 'is_earned_leave': 0, 'is_lwp': 0,
-			'is_optional_leave': 0, 'max_continuous_days_allowed': 0, 'max_leaves_allowed': 0},
-		{'doctype': 'Leave Type', 'leave_type_name': _('Cuti Bersama'), 'name': _('Cuti Bersama'),
-			'allow_encashment': 0, 'earned_leave_frequency': 'Monthly', 'include_holiday': 0,
-			'is_carry_forward': 0, 'is_compensatory': 1, 'is_earned_leave': 0, 'is_lwp': 0,
-			'is_optional_leave': 0, 'max_continuous_days_allowed': 0, 'max_leaves_allowed': 0},
-		{'doctype': 'Leave Type', 'leave_type_name': _('Cuti Keluarga Dekat Rawat Inap'), 'name': _('Cuti Keluarga Dekat Rawat Inap'),
-			'allow_encashment': 0, 'earned_leave_frequency': 'Monthly', 'include_holiday': 0,
-			'is_carry_forward': 0, 'is_compensatory': 1, 'is_earned_leave': 0, 'is_lwp': 0,
-			'is_optional_leave': 0, 'max_continuous_days_allowed': 1, 'max_leaves_allowed': 1},
-		{'doctype': 'Leave Type', 'leave_type_name': _('Cuti Istri Melahirkan/Keguguran'), 'name': _('Cuti Istri Melahirkan/Keguguran'),
-			'allow_encashment': 0, 'earned_leave_frequency': 'Monthly', 'include_holiday': 0,
-			'is_carry_forward': 0, 'is_compensatory': 1, 'is_earned_leave': 0, 'is_lwp': 0,
-			'is_optional_leave': 0, 'max_continuous_days_allowed': 7, 'max_leaves_allowed': 1},
 	# Employee Health Insurance
 		{'doctype': 'Employee Health Insurance', 'health_insurance_name': _('Asuransi non-BPJS')},
 		{'doctype': 'Employee Health Insurance', 'health_insurance_name': _('BPJS Pensiun')},
@@ -133,6 +77,45 @@ def install(country=None):
 		{'doctype': 'Job Applicant Source', 'source_name': _('Walk In')},
 		{'doctype': 'Job Applicant Source', 'source_name': _('Employee Referral')},
 		{'doctype': 'Job Applicant Source', 'source_name': _('Campaign')},
+	# Market Segments
+		{"doctype": "Market Segment", "market_segment": _("Lower Income")},
+		{"doctype": "Market Segment", "market_segment": _("Middle Income")},
+		{"doctype": "Market Segment", "market_segment": _("Upper Income")},
+		{"doctype": "Market Segment", "market_segment": _("Individuals")},
+		{"doctype": "Market Segment", "market_segment": _("Commercials")},
+	# Sales Stages
+		{"doctype": "Sales Stage", "stage_name": _("Prospecting")},
+		{"doctype": "Sales Stage", "stage_name": _("Qualification")},
+		{"doctype": "Sales Stage", "stage_name": _("Needs Analysis")},
+		{"doctype": "Sales Stage", "stage_name": _("Value Proposition")},
+		{"doctype": "Sales Stage", "stage_name": _("Identifying Decision Makers")},
+		{"doctype": "Sales Stage", "stage_name": _("Perception Analysis")},
+		{"doctype": "Sales Stage", "stage_name": _("Proposal/Price Quote")},
+		{"doctype": "Sales Stage", "stage_name": _("Negotiation/Review")},
+	]
+# hr - leave notifications
+	base_path = frappe.get_app_path("erpnext", "hr", "doctype")
+	response = frappe.read_file(os.path.join(base_path, "leave_application/leave_application_email_template.html"))
+
+	records += [{'doctype': 'Email Template', 'name': _("Leave Approval Notification"), 'response': response,\
+		'subject': _("Leave Approval Notification"), 'owner': frappe.session.user}]
+
+	records += [{'doctype': 'Email Template', 'name': _("Leave Status Notification"), 'response': response,\
+		'subject': _("Leave Status Notification"), 'owner': frappe.session.user}]
+# stock - delivery 
+	base_path = frappe.get_app_path("erpnext", "stock", "doctype")
+	response = frappe.read_file(os.path.join(base_path, "delivery_trip/dispatch_notification_template.html"))
+
+	records += [{'doctype': 'Email Template', 'name': _("Dispatch Notification"), 'response': response,\
+		'subject': _("Your order is out for delivery!"), 'owner': frappe.session.user}]
+# Supplier Scorecard
+	from erpnext.buying.doctype.supplier_scorecard.supplier_scorecard import make_default_records
+	make_default_records()
+
+	make_records(records)
+
+def install_group_and_types(args=None):
+	records = [
 	# item group
 		{'doctype': 'Item Group', 'item_group_name': _('All Item Groups'), 'is_group': 1, 'parent_item_group': ''},
 		{'doctype': 'Item Group', 'item_group_name': _('Products'), 'is_group': 0, 'parent_item_group': _('All Item Groups'), "show_in_website": 1 },
@@ -198,49 +181,73 @@ def install(country=None):
 		{'doctype': "Project Type", "project_type": _("Internal")},
 		{'doctype': "Project Type", "project_type": _("External")},
 		{'doctype': "Project Type", "project_type": _("Other")},
+	# leave type
+		{'doctype': 'Leave Type', 'leave_type_name': _('Cuti Orang Serumah Meninggal'), 'name': _('Cuti Orang Serumah Meninggal'),
+			'allow_encashment': 0, 'earned_leave_frequency': 'Monthly', 'include_holiday': 0,
+			'is_carry_forward': 0, 'is_compensatory': 0, 'is_earned_leave': 0, 'is_lwp': 0,
+			'is_optional_leave': 0, 'max_continuous_days_allowed': 1, 'max_leaves_allowed': 1},
+		{'doctype': 'Leave Type', 'leave_type_name': _('Cuti Keluarga Dekat Meninggal'), 'name': _('Cuti Keluarga Dekat Meninggal'),
+			'allow_encashment': 0, 'earned_leave_frequency': 'Monthly', 'include_holiday': 0,
+			'is_carry_forward': 0, 'is_compensatory': 0, 'is_earned_leave': 0, 'is_lwp': 0,
+			'is_optional_leave': 0, 'max_continuous_days_allowed': 2, 'max_leaves_allowed': 2},
+		{'doctype': 'Leave Type', 'leave_type_name': _('Cuti Melahirkan/Keguguran'), 'name': _('Cuti Melahirkan/Keguguran'),
+			'allow_encashment': 0, 'earned_leave_frequency': 'Monthly', 'include_holiday': 1,
+			'is_carry_forward': 0, 'is_compensatory': 0, 'is_earned_leave': 0, 'is_lwp': 0,
+			'is_optional_leave': 0, 'max_continuous_days_allowed': 90, 'max_leaves_allowed': 1},
+		{'doctype': 'Leave Type', 'leave_type_name': _('Cuti Membaptiskan Anak'), 'name': _('Cuti Membaptiskan Anak'),
+			'allow_encashment': 0, 'earned_leave_frequency': 'Monthly', 'include_holiday': 0,
+			'is_carry_forward': 0, 'is_compensatory': 0, 'is_earned_leave': 0, 'is_lwp': 0,
+			'is_optional_leave': 0, 'max_continuous_days_allowed': 2, 'max_leaves_allowed': 1},
+		{'doctype': 'Leave Type', 'leave_type_name': _('Cuti Mengkhitankan Anak'), 'name': _('Cuti Mengkhitankan Anak'),
+			'allow_encashment': 0, 'earned_leave_frequency': 'Monthly', 'include_holiday': 0,
+			'is_carry_forward': 0, 'is_compensatory': 0, 'is_earned_leave': 0, 'is_lwp': 0,
+			'is_optional_leave': 0, 'max_continuous_days_allowed': 2, 'max_leaves_allowed': 2},
+		{'doctype': 'Leave Type', 'leave_type_name': _('Cuti Menikahkan Anak'), 'name': _('Cuti Menikahkan Anak'),
+			'allow_encashment': 0, 'earned_leave_frequency': 'Monthly', 'include_holiday': 0,
+			'is_carry_forward': 0, 'is_compensatory': 0, 'is_earned_leave': 0, 'is_lwp': 0,
+			'is_optional_leave': 0, 'max_continuous_days_allowed': 0, 'max_leaves_allowed': 2},
+		{'doctype': 'Leave Type', 'leave_type_name': _('Cuti Kompensasi Hari Libur'), 'name': _('Cuti Kompensasi Hari Libur'),
+			'allow_encashment': 0, 'earned_leave_frequency': 'Monthly', 'include_holiday': 0,
+			'is_carry_forward': 0, 'is_compensatory': 1, 'is_earned_leave': 0, 'is_lwp': 0,
+			'is_optional_leave': 0, 'max_continuous_days_allowed': 0, 'max_leaves_allowed': 0},
+		{'doctype': 'Leave Type', 'leave_type_name': _('Cuti Besar'), 'name': _('Cuti Besar'), 'applicable_after': 1728,
+			'allow_encashment': 0, 'earned_leave_frequency': 'Monthly', 'include_holiday': 1,
+			'is_carry_forward': 0, 'is_compensatory': 0, 'is_earned_leave': 0, 'is_lwp': 0,
+			'is_optional_leave': 0, 'max_continuous_days_allowed': 30, 'max_leaves_allowed': 0},
+		{'doctype': 'Leave Type', 'leave_type_name': _('Cuti Tahunan'), 'name': _('Cuti Tahunan'), 'applicable_after': 288,
+			'allow_encashment': 0, 'earned_leave_frequency': 'Yearly', 'include_holiday': 0,
+			'is_carry_forward': 0, 'is_compensatory': 0, 'is_earned_leave': 1, 'is_lwp': 0,
+			'is_optional_leave': 0, 'max_continuous_days_allowed': 12, 'max_leaves_allowed': 12},
+		{'doctype': 'Leave Type', 'leave_type_name': _('Cuti Tanpa Upah'), 'name': _('Cuti Tanpa Upah'),
+			'allow_encashment': 0, 'earned_leave_frequency': 'Monthly', 'include_holiday': 1,
+			'is_carry_forward': 0, 'is_compensatory': 0, 'is_earned_leave': 0, 'is_lwp': 1,
+			'is_optional_leave': 0, 'max_continuous_days_allowed': 12, 'max_leaves_allowed': 0},
+		{'doctype': 'Leave Type', 'leave_type_name': _('Cuti Sakit'), 'name': _('Cuti Sakit'),
+			'allow_encashment': 0, 'earned_leave_frequency': 'Monthly', 'include_holiday': 1,
+			'is_carry_forward': 0, 'is_compensatory': 0, 'is_earned_leave': 0, 'is_lwp': 0,
+			'is_optional_leave': 0, 'max_continuous_days_allowed': 0, 'max_leaves_allowed': 0},
+		{'doctype': 'Leave Type', 'leave_type_name': _('Cuti Bersama'), 'name': _('Cuti Bersama'),
+			'allow_encashment': 0, 'earned_leave_frequency': 'Monthly', 'include_holiday': 0,
+			'is_carry_forward': 0, 'is_compensatory': 1, 'is_earned_leave': 0, 'is_lwp': 0,
+			'is_optional_leave': 0, 'max_continuous_days_allowed': 0, 'max_leaves_allowed': 0},
+		{'doctype': 'Leave Type', 'leave_type_name': _('Cuti Keluarga Dekat Rawat Inap'), 'name': _('Cuti Keluarga Dekat Rawat Inap'),
+			'allow_encashment': 0, 'earned_leave_frequency': 'Monthly', 'include_holiday': 0,
+			'is_carry_forward': 0, 'is_compensatory': 1, 'is_earned_leave': 0, 'is_lwp': 0,
+			'is_optional_leave': 0, 'max_continuous_days_allowed': 1, 'max_leaves_allowed': 1},
+		{'doctype': 'Leave Type', 'leave_type_name': _('Cuti Istri Melahirkan/Keguguran'), 'name': _('Cuti Istri Melahirkan/Keguguran'),
+			'allow_encashment': 0, 'earned_leave_frequency': 'Monthly', 'include_holiday': 0,
+			'is_carry_forward': 0, 'is_compensatory': 1, 'is_earned_leave': 0, 'is_lwp': 0,
+			'is_optional_leave': 0, 'max_continuous_days_allowed': 7, 'max_leaves_allowed': 1},
 	# Assessment Group
 		{'doctype': 'Assessment Group', 'assessment_group_name': _('All Assessment Groups'), 'is_group': 1, 'parent_assessment_group': ''},
-	# Market Segments
-		{"doctype": "Market Segment", "market_segment": _("Lower Income")},
-		{"doctype": "Market Segment", "market_segment": _("Middle Income")},
-		{"doctype": "Market Segment", "market_segment": _("Upper Income")},
-		{"doctype": "Market Segment", "market_segment": _("Individuals")},
-		{"doctype": "Market Segment", "market_segment": _("Commercials")},
-	# Sales Stages
-		{"doctype": "Sales Stage", "stage_name": _("Prospecting")},
-		{"doctype": "Sales Stage", "stage_name": _("Qualification")},
-		{"doctype": "Sales Stage", "stage_name": _("Needs Analysis")},
-		{"doctype": "Sales Stage", "stage_name": _("Value Proposition")},
-		{"doctype": "Sales Stage", "stage_name": _("Identifying Decision Makers")},
-		{"doctype": "Sales Stage", "stage_name": _("Perception Analysis")},
-		{"doctype": "Sales Stage", "stage_name": _("Proposal/Price Quote")},
-		{"doctype": "Sales Stage", "stage_name": _("Negotiation/Review")},
 	]
 # industry type, lead source, sales partner type
 	from erpnext.setup.setup_wizard.data.industry_type import get_industry_types
 	records += [{"doctype":"Industry Type", "industry": d} for d in get_industry_types()]
 	# records += [{"doctype":"Operation", "operation": d} for d in get_operations()]
 	records += [{'doctype': 'Lead Source', 'source_name': _(d)} for d in default_lead_sources]
-
+# sales partner type
 	records += [{'doctype': 'Sales Partner Type', 'sales_partner_type': _(d)} for d in default_sales_partner_type]
-# hr - leave notifications
-	base_path = frappe.get_app_path("erpnext", "hr", "doctype")
-	response = frappe.read_file(os.path.join(base_path, "leave_application/leave_application_email_template.html"))
-
-	records += [{'doctype': 'Email Template', 'name': _("Leave Approval Notification"), 'response': response,\
-		'subject': _("Leave Approval Notification"), 'owner': frappe.session.user}]
-
-	records += [{'doctype': 'Email Template', 'name': _("Leave Status Notification"), 'response': response,\
-		'subject': _("Leave Status Notification"), 'owner': frappe.session.user}]
-# stock - delivery 
-	base_path = frappe.get_app_path("erpnext", "stock", "doctype")
-	response = frappe.read_file(os.path.join(base_path, "delivery_trip/dispatch_notification_template.html"))
-
-	records += [{'doctype': 'Email Template', 'name': _("Dispatch Notification"), 'response': response,\
-		'subject': _("Your order is out for delivery!"), 'owner': frappe.session.user}]
-# Supplier Scorecard
-	from erpnext.buying.doctype.supplier_scorecard.supplier_scorecard import make_default_records
-	make_default_records()
 # make above record lists
 	make_records(records)
 # set more defaults ==>
@@ -332,6 +339,33 @@ def install_company(args):
 		}
 	]
 	make_records(records)
+# enable default currency
+	frappe.db.set_value("Currency", args.get("currency"), "enabled", 1)
+# bank account
+	if args.bank_account:
+		company_name = args.company_name
+		bank_account_group =  frappe.db.get_value("Account",
+			{"account_type": "Bank", "is_group": 1, "root_type": "Asset",
+				"company": company_name})
+		if bank_account_group:
+			bank_account = frappe.get_doc({
+				"doctype": "Account",
+				'account_name': args.bank_account,
+				'parent_account': bank_account_group,
+				'is_group':0,
+				'company': company_name,
+				"account_type": "Bank",
+			})
+			try:
+				doc = bank_account.insert()
+
+				frappe.db.set_value("Company", args.company_name, "default_bank_account", bank_account.name, update_modified=False)
+
+			except RootNotEditable:
+				frappe.throw(_("Bank account cannot be named as {0}").format(args.bank_account))
+			except frappe.DuplicateEntryError:
+				# bank account same as a CoA entry
+				pass
 
 def install_post_company_fixtures(args=None):
 	records = [
@@ -401,10 +435,7 @@ def install_post_company_fixtures(args=None):
 	]
 	make_records(records)
 
-#setup_wizard #4
-def install_defaults(args=None):
-# enable default currency
-	frappe.db.set_value("Currency", args.get("currency"), "enabled", 1)
+def install_system_settings(args=None):
 # system settings
 	system_settings = frappe.get_doc("System Settings")
 	system_settings.email_footer_address = args.get("company_name")
@@ -416,6 +447,8 @@ def install_defaults(args=None):
 	system_settings.allow_error_traceback = "0"
 	system_settings.two_factor_method = "Email"
 	system_settings.save()
+
+def install_global_defaults(args=None):
 # global defaults
 	global_defaults = frappe.get_doc("Global Defaults", "Global Defaults")
 	current_fiscal_year = frappe.get_all("Fiscal Year")[0]
@@ -430,11 +463,13 @@ def install_defaults(args=None):
 	})
 
 	global_defaults.save()
+
+def install_domain_settings(args=None):
 # domain settings
 	domain_settings = frappe.get_single('Domain Settings')
 	domain_settings.set_active_domains(args.get('domains'))
 
-def install_commerce(args=None):
+def install_stock(args=None):
 # stock settings
 	stock_settings = frappe.get_doc("Stock Settings")
 	stock_settings.item_naming_by = "Item Code"
@@ -448,6 +483,8 @@ def install_commerce(args=None):
 	stock_settings.show_barcode_field = 1
 	stock_settings.stock_uom = "Unit"
 	stock_settings.save()
+
+def install_selling(args=None):
 # selling_settings
 	selling_settings = frappe.get_doc("Selling Settings")
 	selling_settings.set_default_customer_group_and_territory()
@@ -459,6 +496,8 @@ def install_commerce(args=None):
 	selling_settings.sales_update_frequency = "Each Transaction"
 	selling_settings.campaign_naming_by = "Campaign Name"
 	selling_settings.save()
+
+def install_buying(args=None):
 # buying_settings
 	buying_settings = frappe.get_doc("Buying Settings")
 	buying_settings.supp_master_name = "Supplier Name"
@@ -468,6 +507,8 @@ def install_commerce(args=None):
 	buying_settings.maintain_same_rate = 1
 	buying_settings.allow_multiple_items = 1
 	buying_settings.save()
+
+def install_hr(args=None):
 # hr_settings
 	hr_settings = frappe.get_doc("HR Settings")
 	hr_settings.emp_created_by = "Naming Series"
@@ -478,59 +519,25 @@ def install_commerce(args=None):
 	hr_settings.email_salary_slip_to_employee = 0
 	hr_settings.stop_birthday_reminders = 1
 	hr_settings.save()
+
+def install_manufacturing(args=None):
 # manufacturing_settings
 	manufacturing_settings = frappe.get_doc("Manufacturing Settings")
 	manufacturing_settings.allow_overtime = 1
 	manufacturing_settings.save()
+
+def install_pos(args=None):
 # pos_settings
 	pos_settings = frappe.get_doc("POS Settings")
 	pos_settings.use_pos_in_offline_mode = 1
 	pos_settings.save()
-# website_settings
-	website_settings = frappe.get_doc("Website Settings")
-	website_settings.chat_welcome_message = "Hi, apa yang bisa kami bantu?"
-	website_settings.chat_room_name = "Bantuan"
-	website_settings.chat_enable_from = "07:00:00"
-	website_settings.chat_enable_to = "18:00:00"
-	website_settings.hide_footer_signup = 1
-	website_settings.disable_signup = 1
-	website_settings.save()
+
+def install_other_features(args=None):
 # marketplace_settings
 	marketplace_settings = frappe.get_doc("Marketplace Settings")
 	marketplace_settings.marketplace_url = "https://puniamarket.com/"
 	marketplace_settings.disable_marketplace = 1
 	marketplace_settings.save()
-# homepage_description
-	homepage_description = frappe.get_doc("Homepage")
-	# homepage_description.tag_line = _("UMKM Indonesia")
-	homepage_description.tag_line = args.company_name
-	homepage_description.description = _("Bersama Punia untuk kemajuan UKM Indonesia")
-	homepage_description.save()
-# bank account
-	if args.bank_account:
-		company_name = args.company_name
-		bank_account_group =  frappe.db.get_value("Account",
-			{"account_type": "Bank", "is_group": 1, "root_type": "Asset",
-				"company": company_name})
-		if bank_account_group:
-			bank_account = frappe.get_doc({
-				"doctype": "Account",
-				'account_name': args.bank_account,
-				'parent_account': bank_account_group,
-				'is_group':0,
-				'company': company_name,
-				"account_type": "Bank",
-			})
-			try:
-				doc = bank_account.insert()
-
-				frappe.db.set_value("Company", args.company_name, "default_bank_account", bank_account.name, update_modified=False)
-
-			except RootNotEditable:
-				frappe.throw(_("Bank account cannot be named as {0}").format(args.bank_account))
-			except frappe.DuplicateEntryError:
-				# bank account same as a CoA entry
-				pass
 # Price Lists
 	records = [
 		{ "doctype": "Price List", "price_list_name": _("Standard Buying"), "enabled": 1, "buying": 1, "selling": 0, "currency": args.currency },
@@ -556,6 +563,25 @@ def install_commerce(args=None):
 	make_records(records)
 # add dashboard
 	add_dashboards()
+
+def setup_website(args=None):
+# website_settings
+# website_settings
+	website_settings = frappe.get_doc("Website Settings")
+	website_settings.chat_welcome_message = "Hi, apa yang bisa kami bantu?"
+	website_settings.chat_room_name = "Bantuan"
+	website_settings.chat_enable_from = "07:00:00"
+	website_settings.chat_enable_to = "18:00:00"
+	website_settings.hide_footer_signup = 1
+	website_settings.disable_signup = 1
+	website_settings.save()
+# homepage_description
+	homepage_description = frappe.get_doc("Homepage")
+	# homepage_description.tag_line = _("UMKM Indonesia")
+	homepage_description.tag_line = args.company_name
+	homepage_description.description = _("Bersama Punia untuk kemajuan UKM Indonesia")
+	homepage_description.save()
+
 
 def add_uom_data():
 # add UOMs
