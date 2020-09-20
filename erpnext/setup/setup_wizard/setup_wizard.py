@@ -136,6 +136,17 @@ def get_setup_stages(args=None):
 				]
 			},
 			{
+				'status': _('Setting up accounting'),
+				'fail_msg': 'Failed to set accounting',
+				'tasks': [
+					{
+						'fn': setup_accounting,
+						'args': args,
+						'fail_msg': _("Failed to setup accounting")
+					}
+				]
+			},
+			{
 				'status': _('Setting up stock'),
 				'fail_msg': 'Failed to set stock',
 				'tasks': [
@@ -272,6 +283,9 @@ def setup_global_defaults(args):
 
 def setup_domain_settings(args):
 	fixtures.install_domain_settings(frappe._dict(args))
+
+def setup_accounting(args):
+	fixtures.install_accounting(frappe._dict(args))
 
 def setup_stock(args):
 	fixtures.install_stock(frappe._dict(args))
