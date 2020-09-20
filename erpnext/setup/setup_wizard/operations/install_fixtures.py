@@ -473,21 +473,21 @@ def install_accounting(args):
 # company settings default acccounts
 	account_settings = frappe.get_doc('Company', args.company_name)
 # Accounts Settings:
-	# account_settings.default_bank_account = " - " + args.company_abbr
-	# account_settings.default_cash_account = " - " + args.company_abbr
+	account_settings.default_bank_account = "1121.001 - Rekening Bank - " + args.company_abbr
+	account_settings.default_cash_account = "1112.001 - Kas Besar - " + args.company_abbr
 	account_settings.default_receivable_account = "1131.001 - Piutang Dagang - " + args.company_abbr
 	# account_settings.round_off_account = " - " + args.company_abbr
 	# account_settings.write_off_account = " - " + args.company_abbr
 	account_settings.discount_allowed_account = "4130.001 - Potongan Penjualan - " + args.company_abbr
 	account_settings.discount_received_account = "5110.017 - Potongan Supplier - " + args.company_abbr
 	account_settings.exchange_gain_loss_account = "5510.010 - Selisih Kurs - " + args.company_abbr
-	# account_settings.unrealized_exchange_gain_loss_account = " - " + args.company_abbr
+	account_settings.unrealized_exchange_gain_loss_account = "5510.010 - Selisih Kurs - " + args.company_abbr
 	account_settings.default_payable_account = "2111.001 - Hutang Dagang - " + args.company_abbr
 	account_settings.default_employee_advance_account = "1132.001 - Piutang Karyawan - " + args.company_abbr
-	# account_settings.default_expense_account = " - " + args.company_abbr			#cogs
+	account_settings.default_expense_account = "4210.001 - HPP Pembelian - " + args.company_abbr			#cogs
 	account_settings.default_income_account = "4110.001 - Penjualan Barang Dagang - " + args.company_abbr
 	account_settings.default_deferred_revenue_account = "2121.001 - Uang Muka Penjualan - " + args.company_abbr
-	account_settings.default_deferred_expense_account = "1241.001 - Biaya Ditangguhkan - " + args.company_abbr
+	account_settings.default_deferred_expense_account = "1251.001 - Biaya Ditangguhkan - " + args.company_abbr
 	account_settings.default_payroll_payable_account = "2133.001 - Gaji Yang Akan Dibayar - " + args.company_abbr
 	account_settings.default_expense_claim_payable_account = "2134.001 - Penggantian Biaya - " + args.company_abbr
 # Stock Settings:
