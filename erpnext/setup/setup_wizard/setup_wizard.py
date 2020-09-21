@@ -48,13 +48,13 @@ def get_setup_stages(args=None):
 				]
 			},
 			{
-				'status': _('Installing groups and types'),
+				'status': _('Setting up groups and types'),
 				'fail_msg': _('Failed to install groups and types'),
 				'tasks': [
 					{
 						'fn': setup_groups_and_types,
 						'args': args,
-						'fail_msg': _("Failed to install groups and types")
+						'fail_msg': _("Failed to setup groups and types")
 					}
 				]
 			},
@@ -91,17 +91,6 @@ def get_setup_stages(args=None):
 					}
 				]
 			},
-			# {
-			# 	'status': _('Setting up defaults'),
-			# 	'fail_msg': 'Failed to set defaults',
-			# 	'tasks': [
-			# 		{
-			# 			'fn': setup_defaults,
-			# 			'args': args,
-			# 			'fail_msg': _("Failed to setup defaults")
-			# 		}
-			# 	]
-			# },
 			{
 				'status': _('Setting up system settings'),
 				'fail_msg': 'Failed to set system settings',
@@ -271,9 +260,6 @@ def setup_website(args):
 	company_setup.create_email_digest()
 	company_setup.create_logo(args)
 	fixtures.setup_website(args)
-
-# def setup_defaults(args):
-# 	fixtures.install_defaults(frappe._dict(args))
 
 def setup_system_settings(args):
 	fixtures.install_system_settings(frappe._dict(args))
