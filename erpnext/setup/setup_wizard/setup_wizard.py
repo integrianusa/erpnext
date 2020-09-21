@@ -48,13 +48,13 @@ def get_setup_stages(args=None):
 				]
 			},
 			{
-				'status': _('Installing groups and types'),
+				'status': _('Setting up groups and types'),
 				'fail_msg': _('Failed to install groups and types'),
 				'tasks': [
 					{
 						'fn': setup_groups_and_types,
 						'args': args,
-						'fail_msg': _("Failed to install groups and types")
+						'fail_msg': _("Failed to setup groups and types")
 					}
 				]
 			},
@@ -91,17 +91,6 @@ def get_setup_stages(args=None):
 					}
 				]
 			},
-			# {
-			# 	'status': _('Setting up defaults'),
-			# 	'fail_msg': 'Failed to set defaults',
-			# 	'tasks': [
-			# 		{
-			# 			'fn': setup_defaults,
-			# 			'args': args,
-			# 			'fail_msg': _("Failed to setup defaults")
-			# 		}
-			# 	]
-			# },
 			{
 				'status': _('Setting up system settings'),
 				'fail_msg': 'Failed to set system settings',
@@ -132,6 +121,17 @@ def get_setup_stages(args=None):
 						'fn': setup_domain_settings,
 						'args': args,
 						'fail_msg': _("Failed to setup domain settings")
+					}
+				]
+			},
+			{
+				'status': _('Setting up accounting'),
+				'fail_msg': 'Failed to set accounting',
+				'tasks': [
+					{
+						'fn': setup_accounting,
+						'args': args,
+						'fail_msg': _("Failed to setup accounting")
 					}
 				]
 			},
@@ -261,9 +261,6 @@ def setup_website(args):
 	company_setup.create_logo(args)
 	fixtures.setup_website(args)
 
-# def setup_defaults(args):
-# 	fixtures.install_defaults(frappe._dict(args))
-
 def setup_system_settings(args):
 	fixtures.install_system_settings(frappe._dict(args))
 
@@ -272,6 +269,9 @@ def setup_global_defaults(args):
 
 def setup_domain_settings(args):
 	fixtures.install_domain_settings(frappe._dict(args))
+
+def setup_accounting(args):
+	fixtures.install_accounting(frappe._dict(args))
 
 def setup_stock(args):
 	fixtures.install_stock(frappe._dict(args))
