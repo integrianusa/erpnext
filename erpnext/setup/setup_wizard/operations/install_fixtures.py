@@ -331,6 +331,9 @@ def install_company(args):
 			'create_chart_of_accounts_based_on': 'Standard Template',
 			'chart_of_accounts': args.chart_of_accounts,
 			'domain': args.domain,
+			'standard_working_hours': "8",
+			'series_for_depreciation_entry': "DEPR-",
+			'registration_details': "Akte Pendirian:\nAkte Perubahan:\nNPWP:\nSIUP:\nTDP:\nDomisili:\nIUMK:"
 		},
 	# Marketplace
 		{
@@ -495,7 +498,7 @@ def install_accounting(args):
 	# account_settings.stock_adjustment_account = "5110.019 - Penyesuaian Persediaan - " + args.company_abbr
 	# account_settings.stock_received_but_not_billed = " - " + args.company_abbr
 	# account_settings.expenses_included_in_valuation = " - " + args.company_abbr
-	account_settings.default_warehouse_for_sales_return = "Stores - " + args.company_abbr
+	account_settings.default_warehouse_for_sales_return = _("Stores") + " - " + args.company_abbr
 # Fixed Assets Depreciation:
 	# account_settings.accumulated_depreciation_account = " - " + args.company_abbr
 	# account_settings.depreciation_expense_account = " - " + args.company_abbr
@@ -503,7 +506,6 @@ def install_accounting(args):
 	account_settings.disposal_account = "4540.001 - Laba/Rugi Penjualan Aset - " + args.company_abbr
 	account_settings.capital_work_in_progress_account = "1252.001 - Aset Dalam Pengerjaan - " + args.company_abbr
 	account_settings.asset_received_but_not_billed = "2191.001 - Aset Diterima Tapi Belum Ditagih - " + args.company_abbr
-	account_settings.series_for_depreciation_entry = "DEPR-"
 	account_settings.save()
 
 def install_stock(args=None):
@@ -557,10 +559,13 @@ def install_hr(args=None):
 	hr_settings.stop_birthday_reminders = 1
 	hr_settings.save()
 
-def install_manufacturing(args=None):
+def install_manufacturing(args):
 # manufacturing_settings
+	# comp = frappe.get_doc('Company', args.company_name)
 	manufacturing_settings = frappe.get_doc("Manufacturing Settings")
 	manufacturing_settings.allow_overtime = 1
+	manufacturing_settings.default_wip_warehouse = _("Work In Progress") + " - " + args.company_abbr
+	manufacturing_settings.default_fg_warehouse = _("Finished Goods") + " - " + args.company_abbr
 	manufacturing_settings.save()
 
 def install_pos(args=None):
