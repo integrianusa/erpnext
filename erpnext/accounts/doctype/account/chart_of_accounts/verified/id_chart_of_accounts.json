@@ -581,55 +581,66 @@
             "root_type": "Liability"
         }, 
         "Pendapatan": {
-            "Pendapatan Lain-lain": {
-                "Pendapatan Bunga Bank": {
-                    "account_number": "4520.001"
+            "Pendapatan Non-Usaha": { 
+                "Pendapatan dari Pihak Ketiga": {
+                    "Pendapatan Bunga Bank": {
+                        "account_number": "4211.001"
+                    }, 
+                    "Pendapatan Bunga Dari Pihak Lain": {
+                        "account_number": "4211.002"
+                    }, 
+                    "Pendapatan Komisi": {
+                        "account_number": "4212.001"
+                    }, 
+                    "Pendapatan Lain-lain": {
+                        "account_number": "4219.001"
+                    }, 
+                   "account_number": "4210.000"
+                },
+                "Penjualan Non-Usaha": {
+                    "Laba/Rugi Penjualan Aset": {
+                        "account_number": "4221.001"
+                    }, 
+                    "Pendapatan Penjualan Barang Bekas": {
+                        "account_number": "4222.001"
+                    }, 
+                    "account_number": "4220.000"
+                },
+                "account_number": "4200.000", 
+                "root_type": "Income"
+            },
+            "Pendapatan Usaha": {
+                "Pendapatan Jasa dan Sewa": {
+                    "Pendapatan Jasa": {
+                        "account_number": "4121.001"
+                    }, 
+                    "Pendapatan Sewa Bangunan": {
+                        "account_number": "4122.001"
+                    }, 
+                    "Pendapatan Sewa Peralatan": {
+                        "account_number": "4123.001"
+                    }, 
+                    "Pendapatan Jasa dan Sewa Lain": {
+                        "account_number": "4129.001"
+                    }, 
+                    "account_number": "4120.000"
                 }, 
-                "Pendapatan Bunga Dari Pihak Ketiga": {
-                    "account_number": "4520.002"
-                }, 
-                "Laba/Rugi Penjualan Aset": {
-                    "account_number": "4540.001"
-                }, 
-                "Pendapatan Komisi": {
-                    "account_number": "4510.001"
-                }, 
-                "Pendapatan Lain-lain": {
-                    "account_number": "4590.001"
-                }, 
-                "Pendapatan Penjualan Barang Bekas": {
-                    "account_number": "4530.001"
-                }, 
-                "account_number": "4500.000"
-            }, 
-            "Pendapatan Jasa dan Sewa": {
-                "Pendapatan Jasa": {
-                    "account_number": "4210.001"
-                }, 
-                "Pendapatan Sewa Bangunan": {
-                    "account_number": "4220.001"
-                }, 
-                "Pendapatan Sewa Peralatan": {
-                    "account_number": "4230.001"
-                }, 
-                "Pendapatan Jasa dan Sewa Lain": {
-                    "account_number": "4290.001"
-                }, 
-                "account_number": "4200.000"
-            }, 
-            "Penjualan Barang": {
-                "Penjualan Barang Dagang": {
-                    "account_number": "4110.001",
-                    "account_type": "Income Account"
-                }, 
-                "Diskon Penjualan": {
-                    "account_number": "4130.001"
-                }, 
-                "Retur Penjualan": {
-                    "account_number": "4120.001"
-                }, 
-                "account_number": "4100.000"
-            }, 
+                "Penjualan Barang": {
+                    "Penjualan Barang Dagang": {
+                        "account_number": "4111.001",
+                        "account_type": "Income Account"
+                    }, 
+                    "Diskon Penjualan": {
+                        "account_number": "4113.001"
+                    }, 
+                    "Retur Penjualan": {
+                        "account_number": "4112.001"
+                    }, 
+                    "account_number": "4110.000"
+                },
+                "account_number": "4100.000", 
+                "root_type": "Income"
+            },
             "account_number": "4000.000", 
             "root_type": "Income"
         }

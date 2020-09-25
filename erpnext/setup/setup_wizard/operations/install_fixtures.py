@@ -481,14 +481,14 @@ def install_accounting(args):
 	account_settings.default_receivable_account = "1131.001 - Piutang Dagang - " + args.company_abbr
 	account_settings.round_off_account = "5510.006 - Selisih Pembulatan - " + args.company_abbr
 	account_settings.write_off_account = "5510.009 - Beban Penghapusan - " + args.company_abbr
-	account_settings.discount_allowed_account = "4130.001 - Diskon Penjualan - " + args.company_abbr
+	account_settings.discount_allowed_account = "4113.001 - Diskon Penjualan - " + args.company_abbr
 	account_settings.discount_received_account = "5110.005 - Diskon Pembelian - " + args.company_abbr
 	account_settings.exchange_gain_loss_account = "5510.007 - Selisih Kurs - " + args.company_abbr
 	account_settings.unrealized_exchange_gain_loss_account = "5510.008 - Perkiraan Selisih Kurs - " + args.company_abbr
 	account_settings.default_payable_account = "2111.001 - Hutang Dagang - " + args.company_abbr
 	account_settings.default_employee_advance_account = "1132.001 - Piutang Karyawan - " + args.company_abbr
 	# account_settings.default_expense_account = "5110.001 - Harga Pokok Penjualan - " + args.company_abbr			#cogs
-	account_settings.default_income_account = "4110.001 - Penjualan Barang Dagang - " + args.company_abbr
+	account_settings.default_income_account = "4111.001 - Penjualan Barang Dagang - " + args.company_abbr
 	account_settings.default_deferred_revenue_account = "2121.001 - Uang Muka Penjualan - " + args.company_abbr
 	account_settings.default_deferred_expense_account = "1251.001 - Biaya Ditangguhkan - " + args.company_abbr
 	account_settings.default_payroll_payable_account = "2132.001 - Gaji Yang Akan Dibayar - " + args.company_abbr
@@ -503,7 +503,7 @@ def install_accounting(args):
 	# account_settings.accumulated_depreciation_account = " - " + args.company_abbr
 	# account_settings.depreciation_expense_account = " - " + args.company_abbr
 	account_settings.expenses_included_in_asset_valuation = "5510.010 - Biaya Pengadaan Aset - " + args.company_abbr
-	account_settings.disposal_account = "4540.001 - Laba/Rugi Penjualan Aset - " + args.company_abbr
+	account_settings.disposal_account = "4221.001 - Laba/Rugi Penjualan Aset - " + args.company_abbr
 	account_settings.capital_work_in_progress_account = "1252.001 - Aset Dalam Pengerjaan - " + args.company_abbr
 	account_settings.asset_received_but_not_billed = "2191.001 - Aset Diterima Tapi Belum Ditagih - " + args.company_abbr
 	account_settings.save()
