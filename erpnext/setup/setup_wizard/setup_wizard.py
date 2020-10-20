@@ -92,7 +92,7 @@ def get_setup_stages(args=None):
 				]
 			},
 			{
-				'status': _('Setting up system settings'),
+				'status': _('Setting up system'),
 				'fail_msg': 'Failed to set system settings',
 				'tasks': [
 					{
@@ -114,7 +114,7 @@ def get_setup_stages(args=None):
 				]
 			},
 			{
-				'status': _('Setting up domain settings'),
+				'status': _('Setting up domain'),
 				'fail_msg': 'Failed to set domain settings',
 				'tasks': [
 					{

@@ -449,6 +449,7 @@ def install_system_settings(args=None):
 	system_settings.allow_login_using_user_name = "1"
 	system_settings.allow_error_traceback = "0"
 	system_settings.two_factor_method = "Email"
+	system_settings.disable_standard_email_footer = "1"
 	system_settings.save()
 
 def install_global_defaults(args=None):
