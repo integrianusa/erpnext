@@ -123,6 +123,7 @@ def install_group_and_types(args=None):
 		{'doctype': 'Item Group', 'item_group_name': _('Services'),	'is_group': 0, 'parent_item_group': _('All Item Groups') },
 		{'doctype': 'Item Group', 'item_group_name': _('Sub Assemblies'), 'is_group': 0, 'parent_item_group': _('All Item Groups') },
 		{'doctype': 'Item Group', 'item_group_name': _('Consumable'), 'is_group': 0, 'parent_item_group': _('All Item Groups') },
+		{'doctype': 'Item Group', 'item_group_name': _('Bills'), 'is_group': 0, 'parent_item_group': _('All Item Groups') },
 	# customer group
 		{'doctype': 'Customer Group', 'customer_group_name': _('All Customer Groups'), 'is_group': 1, 	'name': _('All Customer Groups'), 'parent_customer_group': ''},
 		{'doctype': 'Customer Group', 'customer_group_name': _('Individual'), 'is_group': 0, 'parent_customer_group': _('All Customer Groups')},
@@ -134,9 +135,10 @@ def install_group_and_types(args=None):
 		{'doctype': 'Supplier Group', 'supplier_group_name': _('Services'), 'is_group': 0, 'parent_supplier_group': _('All Supplier Groups')},
 		{'doctype': 'Supplier Group', 'supplier_group_name': _('Local'), 'is_group': 0, 'parent_supplier_group': _('All Supplier Groups')},
 		{'doctype': 'Supplier Group', 'supplier_group_name': _('Raw Material'), 'is_group': 0, 'parent_supplier_group': _('All Supplier Groups')},
-		{'doctype': 'Supplier Group', 'supplier_group_name': _('Electrical'), 'is_group': 0, 'parent_supplier_group': _('All Supplier Groups')},
-		{'doctype': 'Supplier Group', 'supplier_group_name': _('Hardware'), 'is_group': 0, 'parent_supplier_group': _('All Supplier Groups')},
+		{'doctype': 'Supplier Group', 'supplier_group_name': _('Equipments'), 'is_group': 0, 'parent_supplier_group': _('All Supplier Groups')},
 		{'doctype': 'Supplier Group', 'supplier_group_name': _('Distributor'), 'is_group': 0, 'parent_supplier_group': _('All Supplier Groups')},
+		{'doctype': 'Supplier Group', 'supplier_group_name': _('Utilities'), 'is_group': 0, 'parent_supplier_group': _('All Supplier Groups')},
+
 	# Item Attribute
 		{'doctype': "Item Attribute", "attribute_name": _("Size"), "item_attribute_values": [
 			{"attribute_value": _("Extra Small"), "abbr": "XS"},
@@ -160,7 +162,8 @@ def install_group_and_types(args=None):
 		{'doctype': 'Stock Entry Type', 'name': 'Material Transfer for Manufacture', 'purpose': 'Material Transfer for Manufacture'},
 		{'doctype': 'Stock Entry Type', 'name': 'Material Consumption for Manufacture', 'purpose': 'Material Consumption for Manufacture'},
 		{'doctype': 'Stock Entry Type', 'name': 'Send to Warehouse', 'purpose': 'Send to Warehouse'},
-		{'doctype': 'Stock Entry Type', 'name': 'Receive at Warehouse', 'purpose': 'Receive at Warehouse'},	# Party Type
+		{'doctype': 'Stock Entry Type', 'name': 'Receive at Warehouse', 'purpose': 'Receive at Warehouse'},	
+	# Party Type
 		{'doctype': "Party Type", "party_type": "Customer", "account_type": "Receivable"},
 		{'doctype': "Party Type", "party_type": "Supplier", "account_type": "Payable"},
 		{'doctype': "Party Type", "party_type": "Employee", "account_type": "Payable"},
